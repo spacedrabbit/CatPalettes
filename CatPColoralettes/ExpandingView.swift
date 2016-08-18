@@ -15,18 +15,30 @@ class ExpandingView: UIView {
   internal var secondaryContentView: UIView = UIView()
   
   private var secondaryContentViewBottomConstraint: Constraint?
+  private var tapRecognizer: UITapGestureRecognizer!
 
+  
+  
+  // MARK: Initialization
   override init(frame: CGRect) {
     super.init(frame: frame)
-    
     
     self.setupViewHierarchy()
     self.configureConstraints()
     
+    self.tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(ExpandingView.didTapView))
+    self.addGestureRecognizer(self.tapRecognizer)
     primaryContentView.backgroundColor = UIColor(red: randomZeroToOne(), green: randomZeroToOne(), blue: randomZeroToOne(), alpha: 1.0)
     secondaryContentView.backgroundColor = primaryContentView.backgroundColor?.colorWithAlphaComponent(0.25)
   }
 
+  required init?(coder aDecoder: NSCoder) {
+    fatalError()
+  }
+  
+  
+  
+  // MARK: Setup
   private func configureConstraints() {
     self.primaryContentView.snp_makeConstraints { (make) in
       make.top.left.right.equalTo(self)
@@ -42,15 +54,14 @@ class ExpandingView: UIView {
     }
   }
   
+  
   private func setupViewHierarchy() {
     self.addSubview(primaryContentView)
     self.addSubview(secondaryContentView)
   }
   
-  required init?(coder aDecoder: NSCoder) {
-    fatalError()
-  }
   
+  // MARK: - Animation
   internal func animateCell(expand: Bool) {
     
     if expand {
@@ -75,4 +86,9 @@ class ExpandingView: UIView {
     
   }
   
+  
+  // MARK: - Gestures 
+  internal func didTapView(sender: AnyObject?) {
+    print("Expanding view was tapped: \(self)")
+  }
 }
