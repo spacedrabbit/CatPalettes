@@ -17,24 +17,33 @@ class ExpandingTableViewCell: UITableViewCell {
   internal static let expandingIdentifier: String = "expandingCellIdentifier"
   
   internal var palatteStackView: UIStackView
-  internal var arrangedSubviews: [UIView] = [UIView(), UIView(), UIView(), UIView()]
+  internal var arrangedSubviews: [UIView] = [ExpandingView(), ExpandingView(), ExpandingView(), ExpandingView()]
   
   override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
     self.palatteStackView = UIStackView(arrangedSubviews: self.arrangedSubviews)
     self.palatteStackView.axis = .Vertical
-    self.palatteStackView.distribution = .FillEqually
-    
+
     super.init(style: style, reuseIdentifier: reuseIdentifier)
-    for view in self.palatteStackView.arrangedSubviews {
-      view.backgroundColor = UIColor.init(red: randomZeroToOne(), green: randomZeroToOne(), blue: randomZeroToOne(), alpha: 1.0)
-      view.frame = CGRectMake(0.0, 0.0, self.contentView.frame.width, 20.0)
-    }
-    
-    self.contentView.addSubview(self.palatteStackView)
-    
+    self.setupViewHierarchy()
+    self.configureConstraints()
+    self.adjustSubclass()
+  }
+  
+  
+  // MARK: CatThoughts Setup Functions
+  private func configureConstraints() {
     self.palatteStackView.snp_makeConstraints { (make) in
       make.edges.equalTo(self.contentView)
     }
+  }
+  
+  private func setupViewHierarchy() {
+    self.contentView.addSubview(self.palatteStackView)
+  }
+  
+  private func adjustSubclass() {
+    // make any changes to subclass properties
+    self.selectionStyle = .None
   }
   
   required init?(coder aDecoder: NSCoder) {

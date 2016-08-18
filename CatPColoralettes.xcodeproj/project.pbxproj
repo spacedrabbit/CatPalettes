@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1466AE0F1D661EA2006D072E /* ExpandingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1466AE0E1D661EA2006D072E /* ExpandingView.swift */; };
 		14C491141D660F1A00390756 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C491131D660F1A00390756 /* AppDelegate.swift */; };
 		14C491161D660F1A00390756 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C491151D660F1A00390756 /* ViewController.swift */; };
 		14C491191D660F1A00390756 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14C491171D660F1A00390756 /* Main.storyboard */; };
@@ -18,6 +19,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1466AE0E1D661EA2006D072E /* ExpandingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExpandingView.swift; sourceTree = "<group>"; };
 		14C491101D660F1A00390756 /* CatPColoralettes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CatPColoralettes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		14C491131D660F1A00390756 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		14C491151D660F1A00390756 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -68,6 +70,7 @@
 				14C491151D660F1A00390756 /* ViewController.swift */,
 				14C491261D6610CC00390756 /* PaletteTableViewController.swift */,
 				14C491281D66156F00390756 /* ExpandingTableViewCell.swift */,
+				1466AE0E1D661EA2006D072E /* ExpandingView.swift */,
 				14C491251D66108C00390756 /* Supporting Files */,
 			);
 			path = CatPColoralettes;
@@ -227,6 +230,7 @@
 				14C491291D66156F00390756 /* ExpandingTableViewCell.swift in Sources */,
 				14C491271D6610CC00390756 /* PaletteTableViewController.swift in Sources */,
 				14C491161D660F1A00390756 /* ViewController.swift in Sources */,
+				1466AE0F1D661EA2006D072E /* ExpandingView.swift in Sources */,
 				14C491141D660F1A00390756 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -18,6 +18,8 @@ internal class PaletteTableViewController: UITableViewController {
   
   override init(style: UITableViewStyle) {
     super.init(style: style)
+    self.tableView.estimatedRowHeight = 80.0
+    
   }
   
   required init?(coder aDecoder: NSCoder) {
@@ -40,12 +42,12 @@ internal class PaletteTableViewController: UITableViewController {
   }
   
   override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-    return 4
+    return 1
   }
   
-  override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-    return 80.0
-  }
+//  override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+//    return 80.0
+//  }
   
   // MARK: UITableViewDelegate
   override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
