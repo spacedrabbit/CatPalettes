@@ -16,7 +16,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
   func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
     
-    var navigationController: UINavigationController = UINavigationController(rootViewController: PaletteTableViewController())
+    let rootVC = PaletteTableViewController()
+//    let rootVC = ViewController()
+    var navigationController: UINavigationController = UINavigationController(rootViewController: rootVC)
     self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
     self.window?.rootViewController = navigationController
     self.window?.makeKeyAndVisible()

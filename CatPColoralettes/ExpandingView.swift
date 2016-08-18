@@ -9,15 +9,18 @@
 import UIKit
 import SnapKit
 
+protocol ExpansionDelegate {
+  func cellDidExpand(expand: Bool)
+}
+
 class ExpandingView: UIView {
   
   internal var primaryContentView: UIView = UIView()
   internal var secondaryContentView: UIView = UIView()
+  internal var expansionDelegate: ExpansionDelegate?
   
-  private var secondaryContentViewBottomConstraint: Constraint?
   private var tapRecognizer: UITapGestureRecognizer!
-
-  
+  private var isExpanded: Bool = false
   
   // MARK: Initialization
   override init(frame: CGRect) {
@@ -42,15 +45,12 @@ class ExpandingView: UIView {
   private func configureConstraints() {
     self.primaryContentView.snp_makeConstraints { (make) in
       make.top.left.right.equalTo(self)
-      make.width.equalTo(self).priority(990.0)
       make.height.equalTo(20.0)
     }
     
     self.secondaryContentView.snp_makeConstraints { (make) in
       make.top.equalTo(self.primaryContentView.snp_bottom)
-      make.bottom.left.right.equalTo(self)
-      make.width.equalTo(self).priority(990.0)
-      self.secondaryContentViewBottomConstraint = make.height.equalTo(0.0).constraint
+      make.left.right.bottom.equalTo(self)
     }
   }
   
@@ -62,33 +62,37 @@ class ExpandingView: UIView {
   
   
   // MARK: - Animation
-  internal func animateCell(expand: Bool) {
+  internal func toggleCellExpansion() {
     
-    if expand {
-      self.secondaryContentViewBottomConstraint?.deactivate()
-      
+    self.expansionDelegate?.cellDidExpand(self.isExpanded)
+    if !isExpanded {
       self.secondaryContentView.snp_updateConstraints(closure: { (make) in
-        make.height.equalTo(24.0)
+        make.height.equalTo(22.0)//.priority(990.0)
       })
       
-      UIView.animateWithDuration(0.15, animations: { 
-        self.layoutIfNeeded()
-        }, completion: nil) // TODO: update this to do something if needed
-      
-    } else {
-      
-      self.secondaryContentViewBottomConstraint?.activate()
       UIView.animateWithDuration(0.15, animations: {
         self.layoutIfNeeded()
-        }, completion: nil) // TODO: update this to do something if needed
+        }, completion: nil)
+    }
+    else {
+      
+      self.secondaryContentView.snp_updateConstraints(closure: { (make) in
+        make.height.equalTo(0.0)//.priority(990.0)
+      })
+      
+      UIView.animateWithDuration(0.15, animations: {
+        self.layoutIfNeeded()
+        }, completion: nil)
 
     }
     
+    self.isExpanded = !self.isExpanded
   }
   
   
   // MARK: - Gestures 
   internal func didTapView(sender: AnyObject?) {
-    print("Expanding view was tapped: \(self)")
+    print("Expanding view was tapped")
+    self.toggleCellExpansion()
   }
 }

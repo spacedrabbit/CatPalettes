@@ -7,12 +7,23 @@
 //
 
 import UIKit
+import SnapKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, ExpansionDelegate {
 
   override func viewDidLoad() {
     super.viewDidLoad()
-    // Do any additional setup after loading the view, typically from a nib.
+    self.view.backgroundColor = UIColor.redColor()
+    
+    let expanding: ExpandingView = ExpandingView()
+    self.view.addSubview(expanding)
+    
+    expanding.snp_makeConstraints { (make) in
+      make.left.right.equalTo(self.view)
+      make.top.equalTo(100.0)
+      make.height.greaterThanOrEqualTo(20.0)
+    }
+    
   }
 
   override func didReceiveMemoryWarning() {
@@ -21,5 +32,8 @@ class ViewController: UIViewController {
   }
 
 
+  func cellDidExpand(expand: Bool) {
+    self.view.layoutIfNeeded()
+  }
 }
 

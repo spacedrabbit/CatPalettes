@@ -13,7 +13,7 @@ internal func randomZeroToOne() -> CGFloat {
   return CGFloat(Float(arc4random()) / Float(UINT32_MAX))
 }
 
-class ExpandingTableViewCell: UITableViewCell {
+class ExpandingTableViewCell: UITableViewCell, ExpansionDelegate {
   internal static let expandingIdentifier: String = "expandingCellIdentifier"
   
   internal var palatteStackView: UIStackView
@@ -22,11 +22,18 @@ class ExpandingTableViewCell: UITableViewCell {
   override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
     self.palatteStackView = UIStackView(arrangedSubviews: self.arrangedSubviews)
     self.palatteStackView.axis = .Vertical
+    self.palatteStackView.alignment = .Fill
 
     super.init(style: style, reuseIdentifier: reuseIdentifier)
     self.setupViewHierarchy()
     self.configureConstraints()
     self.adjustSubclass()
+    
+    
+    
+    for view in self.palatteStackView.arrangedSubviews as! [ExpandingView] {
+      view.expansionDelegate = self
+    }
   }
   
   
@@ -34,6 +41,8 @@ class ExpandingTableViewCell: UITableViewCell {
   private func configureConstraints() {
     self.palatteStackView.snp_makeConstraints { (make) in
       make.edges.equalTo(self.contentView)
+      make.height.greaterThanOrEqualTo(80.0)
+      make.width.equalTo(UIScreen.mainScreen().bounds.width)
     }
   }
   
@@ -42,7 +51,6 @@ class ExpandingTableViewCell: UITableViewCell {
   }
   
   private func adjustSubclass() {
-    // make any changes to subclass properties
     self.selectionStyle = .None
   }
   
@@ -53,6 +61,10 @@ class ExpandingTableViewCell: UITableViewCell {
   override func setSelected(selected: Bool, animated: Bool) {
     super.setSelected(selected, animated: animated)
     
+  }
+  
+  func cellDidExpand(expand: Bool) {
+    print("Delegation")
   }
   
   
