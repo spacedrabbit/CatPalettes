@@ -16,19 +16,18 @@ internal class SimpleExpandingCell: UITableViewCell {
   override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
     super.init(style: style, reuseIdentifier: reuseIdentifier)
     self.selectionStyle = .None
-
+    
     self.contentView.addSubview(expansionView)
     
     expansionView.snp_makeConstraints { (make) in
-      make.top.bottom.equalTo(self.contentView).priority(990.0)
-      make.left.right.width.equalTo(self.contentView)
+      make.edges.equalTo(self.contentView).priority(990.0)
     }
   }
   
   required init?(coder aDecoder: NSCoder) {
     fatalError()
   }
-
+  
 }
 
 
@@ -43,6 +42,7 @@ internal class PaletteTableViewController: UITableViewController {
     super.init(style: style)
     
     self.tableView.registerClass(SimpleExpandingCell.self, forCellReuseIdentifier: ExpandingTableViewCell.expandingIdentifier)
+//    self.tableView.registerClass(ExpandingTableViewCell.self, forCellReuseIdentifier: ExpandingTableViewCell.expandingIdentifier)
     self.tableView.estimatedRowHeight = 45.0
     self.tableView.rowHeight = UITableViewAutomaticDimension
   }
@@ -63,7 +63,7 @@ internal class PaletteTableViewController: UITableViewController {
   }
   
   override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return 3
+    return 5
   }
   
   override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -71,6 +71,7 @@ internal class PaletteTableViewController: UITableViewController {
   }
   
   override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-    tableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
+    print("Selected Row: \(indexPath.row)")
+    tableView.reloadData()
   }
 }
