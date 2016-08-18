@@ -12,6 +12,10 @@ import SnapKit
 
 internal class PaletteTableViewController: UITableViewController {
   
+  convenience init() {
+    self.init(style: .Plain)
+  }
+  
   override init(style: UITableViewStyle) {
     super.init(style: style)
   }
@@ -22,15 +26,25 @@ internal class PaletteTableViewController: UITableViewController {
   
   // MARK: UITableviewDataSource
   override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-    return UITableViewCell()
+    
+    var cell = tableView.dequeueReusableCellWithIdentifier(ExpandingTableViewCell.expandingIdentifier)
+    if cell == nil {
+      cell = ExpandingTableViewCell(style: .Default, reuseIdentifier: ExpandingTableViewCell.expandingIdentifier)
+    }
+    
+    return cell!
   }
   
   override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return 4
+    return 1
   }
   
   override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-    return 1
+    return 4
+  }
+  
+  override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+    return 80.0
   }
   
   // MARK: UITableViewDelegate

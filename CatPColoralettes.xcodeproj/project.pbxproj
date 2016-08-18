@@ -66,9 +66,9 @@
 			isa = PBXGroup;
 			children = (
 				14C491151D660F1A00390756 /* ViewController.swift */,
-				14C491251D66108C00390756 /* Supporting Files */,
 				14C491261D6610CC00390756 /* PaletteTableViewController.swift */,
 				14C491281D66156F00390756 /* ExpandingTableViewCell.swift */,
+				14C491251D66108C00390756 /* Supporting Files */,
 			);
 			path = CatPColoralettes;
 			sourceTree = "<group>";
