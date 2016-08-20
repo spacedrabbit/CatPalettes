@@ -9,6 +9,21 @@
 import UIKit
 import SnapKit
 
+class ExpandingViewGroupManager {
+  internal var managedViews: [ExpandingView]
+  internal (set) var currentIndex: Int = 0
+  internal (set) var expanded: Bool = false
+  internal var collapsed: Bool { return !expanded }
+  
+  init(withViews views: [ExpandingView]) {
+    self.managedViews = views
+  }
+  
+  internal func updateIndex(index: Int) {
+    self.currentIndex = index
+  }
+}
+
 /** 
   Simple UIView subclass with a tap gesture recognizer to expand/shrink it's height
  */
