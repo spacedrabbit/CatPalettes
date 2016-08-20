@@ -10,28 +10,6 @@ import Foundation
 import UIKit
 import SnapKit
 
-internal class SimpleExpandingCell: UITableViewCell {
-  let expansionView = ExpandingView()
-  
-  override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
-    super.init(style: style, reuseIdentifier: reuseIdentifier)
-    self.selectionStyle = .None
-    
-    self.contentView.addSubview(expansionView)
-    
-    expansionView.snp_makeConstraints { (make) in
-      make.edges.equalTo(self.contentView).priority(990.0)
-    }
-  }
-  
-  required init?(coder aDecoder: NSCoder) {
-    fatalError()
-  }
-  
-}
-
-
-
 internal class PaletteTableViewController: UITableViewController {
   
   convenience init() {
@@ -40,15 +18,17 @@ internal class PaletteTableViewController: UITableViewController {
   
   override init(style: UITableViewStyle) {
     super.init(style: style)
-    
-    self.tableView.registerClass(SimpleExpandingCell.self, forCellReuseIdentifier: ExpandingTableViewCell.expandingIdentifier)
-//    self.tableView.registerClass(ExpandingTableViewCell.self, forCellReuseIdentifier: ExpandingTableViewCell.expandingIdentifier)
-    self.tableView.estimatedRowHeight = 45.0
-    self.tableView.rowHeight = UITableViewAutomaticDimension
+    self.adjustSubclass()
   }
   
   required init?(coder aDecoder: NSCoder) {
     super.init(coder: aDecoder)
+  }
+  
+  private func adjustSubclass() {
+    self.tableView.registerClass(SimpleExpandingCell.self, forCellReuseIdentifier: SimpleExpandingCell.cellIdentifier)
+    self.tableView.estimatedRowHeight = 45.0
+    self.tableView.rowHeight = UITableViewAutomaticDimension
   }
   
   // MARK: UITableviewDataSource

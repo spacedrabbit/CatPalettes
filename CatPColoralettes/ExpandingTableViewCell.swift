@@ -9,10 +9,9 @@
 import UIKit
 import SnapKit
 
-internal func randomZeroToOne() -> CGFloat {
-  return CGFloat(Float(arc4random()) / Float(UINT32_MAX))
-}
 
+// NOTE: This is subclass is going to be tabled for now.. it's going to require much more work than I'd like to put into this project
+// to get a stack view to behave in the manner I'd like
 class ExpandingTableViewCell: UITableViewCell {
   internal static let expandingIdentifier: String = "expandingCellIdentifier"
   

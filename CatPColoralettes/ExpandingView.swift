@@ -9,16 +9,16 @@
 import UIKit
 import SnapKit
 
-
+/** 
+  Simple UIView subclass with a tap gesture recognizer to expand/shrink it's height
+ */
 class ExpandingView: UIView {
   
   internal var primaryContentView: UIView = UIView()
   internal var secondaryContentView: UIView = UIView()
   
   private var tapRecognizer: UITapGestureRecognizer!
-  private var isExpanded: Bool = false
-  
-  private var secondaryHeightConstraint: Constraint?
+  internal private (set) var isExpanded: Bool = false
   
   // MARK: Initialization
   override init(frame: CGRect) {
@@ -26,13 +26,7 @@ class ExpandingView: UIView {
     
     self.setupViewHierarchy()
     self.configureConstraints()
-
-    self.tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(ExpandingView.didTapView))
-    self.addGestureRecognizer(self.tapRecognizer)
-    self.tapRecognizer.cancelsTouchesInView = false
-    
-    primaryContentView.backgroundColor = UIColor.blueColor() //UIColor(red: randomZeroToOne(), green: randomZeroToOne(), blue: randomZeroToOne(), alpha: 1.0)
-    secondaryContentView.backgroundColor = primaryContentView.backgroundColor?.colorWithAlphaComponent(0.25)
+    self.addGestures()
   }
 
   required init?(coder aDecoder: NSCoder) {
@@ -54,10 +48,18 @@ class ExpandingView: UIView {
     }
   }
   
-  
   private func setupViewHierarchy() {
     self.addSubview(primaryContentView)
     self.addSubview(secondaryContentView)
+    
+    primaryContentView.backgroundColor = randomColor(randomAlpha: false)
+    secondaryContentView.backgroundColor = primaryContentView.backgroundColor?.colorWithAlphaComponent(0.25)
+  }
+  
+  private func addGestures() {
+    self.tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(ExpandingView.didTapView))
+    self.addGestureRecognizer(self.tapRecognizer)
+    self.tapRecognizer.cancelsTouchesInView = false
   }
   
   
@@ -66,20 +68,16 @@ class ExpandingView: UIView {
     let newHeight = self.isExpanded ? 0.0 : 22.0
 
     UIView.animateWithDuration(0.15, animations: {
-
-      self.secondaryContentView.snp_updateConstraints { (make) in
-        make.height.equalTo(newHeight)
-      }
+      self.secondaryContentView.snp_updateConstraints { (make) in make.height.equalTo(newHeight) }
       self.layoutIfNeeded()
-      
       }, completion: nil)
     
     self.isExpanded = !self.isExpanded
   }
 
+  
   // MARK: - Gestures 
   internal func didTapView(sender: AnyObject?) {
-    // print("Expanding view was tapped")
     self.toggleCellExpansion()
   }
 }
