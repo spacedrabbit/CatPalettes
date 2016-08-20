@@ -15,7 +15,7 @@ internal func randomZeroToOne() -> CGFloat {
   return CGFloat(Float(arc4random()) / Float(UINT32_MAX))
 }
 
-internal func randomColor(randomAlpha alphaIsRandom: Bool) -> UIColor {
+internal func randomColor(randomAlpha alphaIsRandom: Bool = false) -> UIColor {
   let alphaValue = alphaIsRandom ? randomZeroToOne() : 1.0
   return UIColor(red: randomZeroToOne(), green: randomZeroToOne(), blue: randomZeroToOne(), alpha: alphaValue)
 }

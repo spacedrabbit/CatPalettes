@@ -44,6 +44,10 @@ internal class SimpleExpandingCell: UITableViewCell {
     // make any changes to subclass properties
     self.selectionStyle = .None
   }
+  
+  internal func simulateTap() {
+    self.expansionView.toggleCellExpansion()
+  }
 }
 
 

@@ -11,6 +11,7 @@
 		1466AE111D67F39F006D072E /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1466AE101D67F39E006D072E /* Helpers.swift */; };
 		1466AE131D67F706006D072E /* SimpleExpandingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1466AE121D67F706006D072E /* SimpleExpandingCell.swift */; };
 		1466AE151D67FD4C006D072E /* ColorPalette.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1466AE141D67FD4C006D072E /* ColorPalette.swift */; };
+		1466AE171D67FEDE006D072E /* ExpansionGroupManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1466AE161D67FEDE006D072E /* ExpansionGroupManager.swift */; };
 		14C491141D660F1A00390756 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C491131D660F1A00390756 /* AppDelegate.swift */; };
 		14C491161D660F1A00390756 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C491151D660F1A00390756 /* ViewController.swift */; };
 		14C491191D660F1A00390756 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14C491171D660F1A00390756 /* Main.storyboard */; };
@@ -26,6 +27,7 @@
 		1466AE101D67F39E006D072E /* Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Helpers.swift; path = Common/Helpers.swift; sourceTree = "<group>"; };
 		1466AE121D67F706006D072E /* SimpleExpandingCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimpleExpandingCell.swift; sourceTree = "<group>"; };
 		1466AE141D67FD4C006D072E /* ColorPalette.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorPalette.swift; sourceTree = "<group>"; };
+		1466AE161D67FEDE006D072E /* ExpansionGroupManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExpansionGroupManager.swift; sourceTree = "<group>"; };
 		14C491101D660F1A00390756 /* CatPColoralettes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CatPColoralettes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		14C491131D660F1A00390756 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		14C491151D660F1A00390756 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -77,6 +79,7 @@
 				14C491261D6610CC00390756 /* PaletteTableViewController.swift */,
 				1466AE121D67F706006D072E /* SimpleExpandingCell.swift */,
 				1466AE0E1D661EA2006D072E /* ExpandingView.swift */,
+				1466AE161D67FEDE006D072E /* ExpansionGroupManager.swift */,
 				14C491251D66108C00390756 /* Supporting Files */,
 			);
 			path = CatPColoralettes;
@@ -243,6 +246,7 @@
 				14C491271D6610CC00390756 /* PaletteTableViewController.swift in Sources */,
 				14C491161D660F1A00390756 /* ViewController.swift in Sources */,
 				1466AE0F1D661EA2006D072E /* ExpandingView.swift in Sources */,
+				1466AE171D67FEDE006D072E /* ExpansionGroupManager.swift in Sources */,
 				14C491141D660F1A00390756 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
