@@ -18,6 +18,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     let rootVC = PaletteTableViewController()
     let navigationController: UINavigationController = UINavigationController(rootViewController: rootVC)
+    navigationController.navigationBar.barTintColor = AppColors.DefaultBackground
+    navigationController.navigationBar.titleTextAttributes = [
+      NSForegroundColorAttributeName : AppColors.DefaultTitleText,
+      NSFontAttributeName : AppFonts.Header
+    ]
     self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
     self.window?.rootViewController = navigationController
     self.window?.makeKeyAndVisible()
@@ -46,7 +51,5 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   func applicationWillTerminate(application: UIApplication) {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
   }
-
-
 }
 

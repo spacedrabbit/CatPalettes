@@ -12,16 +12,21 @@ import SnapKit
 
 internal class SimpleExpandingCell: UITableViewCell {
   internal static let cellIdentifier: String = "SimpleExpandingCellIdentifier"
-  private let expansionView = ExpandingView()
+  internal private (set) var expansionView: ExpandingView!// = ExpandingView()
   
   
   // MARK: - Initialization
-  override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
-    super.init(style: style, reuseIdentifier: reuseIdentifier)
+  convenience init(style: UITableViewCellStyle, reuseIdentifier: String?, palette: ColorPalette) {
+    self.init(style: style, reuseIdentifier: reuseIdentifier)
+    self.expansionView = ExpandingView(withColors: palette.paletteColors)
     
     self.setupViewHierarchy()
     self.configureConstraints()
     self.adjustSubclass()
+  }
+  
+  override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+    super.init(style: style, reuseIdentifier: reuseIdentifier)
   }
   
   required init?(coder aDecoder: NSCoder) {
@@ -43,9 +48,11 @@ internal class SimpleExpandingCell: UITableViewCell {
   private func adjustSubclass() {
     // make any changes to subclass properties
     self.selectionStyle = .None
+    self.backgroundColor = AppColors.DefaultBackground
   }
   
   internal func simulateTap() {
+    print("simulated tap")
     self.expansionView.toggleCellExpansion()
   }
 }

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		144334C01D690ABC00E2F511 /* SimpleHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144334BF1D690ABC00E2F511 /* SimpleHeaderView.swift */; };
 		1466AE0F1D661EA2006D072E /* ExpandingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1466AE0E1D661EA2006D072E /* ExpandingView.swift */; };
 		1466AE111D67F39F006D072E /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1466AE101D67F39E006D072E /* Helpers.swift */; };
 		1466AE131D67F706006D072E /* SimpleExpandingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1466AE121D67F706006D072E /* SimpleExpandingCell.swift */; };
@@ -23,6 +24,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		144334BF1D690ABC00E2F511 /* SimpleHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimpleHeaderView.swift; sourceTree = "<group>"; };
 		1466AE0E1D661EA2006D072E /* ExpandingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExpandingView.swift; sourceTree = "<group>"; };
 		1466AE101D67F39E006D072E /* Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Helpers.swift; path = Common/Helpers.swift; sourceTree = "<group>"; };
 		1466AE121D67F706006D072E /* SimpleExpandingCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimpleExpandingCell.swift; sourceTree = "<group>"; };
@@ -54,6 +56,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		144334C11D690AEF00E2F511 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				1466AE141D67FD4C006D072E /* ColorPalette.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		144334C21D690AF500E2F511 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				14C491261D6610CC00390756 /* PaletteTableViewController.swift */,
+			);
+			name = "View Controllers";
+			sourceTree = "<group>";
+		};
+		144334C31D690AFF00E2F511 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				144334BF1D690ABC00E2F511 /* SimpleHeaderView.swift */,
+				1466AE121D67F706006D072E /* SimpleExpandingCell.swift */,
+				1466AE0E1D661EA2006D072E /* ExpandingView.swift */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
 		14C491071D660F1A00390756 = {
 			isa = PBXGroup;
 			children = (
@@ -75,11 +103,11 @@
 		14C491121D660F1A00390756 /* CatPColoralettes */ = {
 			isa = PBXGroup;
 			children = (
-				1466AE141D67FD4C006D072E /* ColorPalette.swift */,
-				14C491261D6610CC00390756 /* PaletteTableViewController.swift */,
-				1466AE121D67F706006D072E /* SimpleExpandingCell.swift */,
-				1466AE0E1D661EA2006D072E /* ExpandingView.swift */,
+				1466AE101D67F39E006D072E /* Helpers.swift */,
 				1466AE161D67FEDE006D072E /* ExpansionGroupManager.swift */,
+				144334C11D690AEF00E2F511 /* Model */,
+				144334C21D690AF500E2F511 /* View Controllers */,
+				144334C31D690AFF00E2F511 /* Views */,
 				14C491251D66108C00390756 /* Supporting Files */,
 			);
 			path = CatPColoralettes;
@@ -90,7 +118,6 @@
 			children = (
 				14C491151D660F1A00390756 /* ViewController.swift */,
 				14C491281D66156F00390756 /* ExpandingTableViewCell.swift */,
-				1466AE101D67F39E006D072E /* Helpers.swift */,
 				14C491131D660F1A00390756 /* AppDelegate.swift */,
 				14C491171D660F1A00390756 /* Main.storyboard */,
 				14C4911A1D660F1A00390756 /* Assets.xcassets */,
@@ -244,6 +271,7 @@
 				1466AE111D67F39F006D072E /* Helpers.swift in Sources */,
 				1466AE151D67FD4C006D072E /* ColorPalette.swift in Sources */,
 				14C491271D6610CC00390756 /* PaletteTableViewController.swift in Sources */,
+				144334C01D690ABC00E2F511 /* SimpleHeaderView.swift in Sources */,
 				14C491161D660F1A00390756 /* ViewController.swift in Sources */,
 				1466AE0F1D661EA2006D072E /* ExpandingView.swift in Sources */,
 				1466AE171D67FEDE006D072E /* ExpansionGroupManager.swift in Sources */,
