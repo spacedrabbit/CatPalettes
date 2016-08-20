@@ -29,6 +29,7 @@ internal class PaletteTableViewController: UITableViewController {
   }
   internal var paletteManager: ExpandingViewGroupManager!
   internal var debugPaletteManager: ExpandingViewGroupManager!
+  internal var floatingPlusButton: FloatingButton = FloatingButton()
   
   convenience init() {
     self.init(style: .Plain)
@@ -39,6 +40,8 @@ internal class PaletteTableViewController: UITableViewController {
     
     self.paletteManager = ExpandingViewGroupManager(withPalettes: self.colorPalletes)
     self.debugPaletteManager = ExpandingViewGroupManager(withPalettes: self.debugPallete)
+    self.setupViewHierarchy()
+    self.configureConstraints()
     self.adjustSubclass()
   }
   
@@ -46,13 +49,24 @@ internal class PaletteTableViewController: UITableViewController {
     super.init(coder: aDecoder)
   }
   
+  private func configureConstraints() {
+    self.floatingPlusButton.snp_makeConstraints { (make) in
+      make.bottom.equalTo(UIScreen.mainScreen().bounds.height - FloatingButton.CornerRadius - 40.0)
+      make.centerX.equalTo(self.tableView)
+    }
+  }
+  
+  private func setupViewHierarchy() {
+    self.view.addSubview(floatingPlusButton)
+  }
+  
   private func adjustSubclass() {
     self.tableView.estimatedRowHeight = 80.0
     self.tableView.rowHeight = UITableViewAutomaticDimension
     self.tableView.backgroundColor = AppColors.DefaultBackground
     self.tableView.separatorColor = UIColor.clearColor()
-    self.tableView.separatorInset = UIEdgeInsets(top: 16.0, left: 0.0, bottom: 0.0, right: 0.0)
-//    self.tableView.estimatedSectionHeaderHeight = 40.0
+    self.tableView.separatorInset = UIEdgeInsets(top: 32.0, left: 0.0, bottom: 0.0, right: 0.0)
+
     self.title = "Palettes"
   }
   

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		144334C01D690ABC00E2F511 /* SimpleHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144334BF1D690ABC00E2F511 /* SimpleHeaderView.swift */; };
+		144334C51D690B6700E2F511 /* FloatingAddButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144334C41D690B6700E2F511 /* FloatingAddButton.swift */; };
 		1466AE0F1D661EA2006D072E /* ExpandingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1466AE0E1D661EA2006D072E /* ExpandingView.swift */; };
 		1466AE111D67F39F006D072E /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1466AE101D67F39E006D072E /* Helpers.swift */; };
 		1466AE131D67F706006D072E /* SimpleExpandingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1466AE121D67F706006D072E /* SimpleExpandingCell.swift */; };
@@ -25,6 +26,7 @@
 
 /* Begin PBXFileReference section */
 		144334BF1D690ABC00E2F511 /* SimpleHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimpleHeaderView.swift; sourceTree = "<group>"; };
+		144334C41D690B6700E2F511 /* FloatingAddButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FloatingAddButton.swift; sourceTree = "<group>"; };
 		1466AE0E1D661EA2006D072E /* ExpandingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExpandingView.swift; sourceTree = "<group>"; };
 		1466AE101D67F39E006D072E /* Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Helpers.swift; path = Common/Helpers.swift; sourceTree = "<group>"; };
 		1466AE121D67F706006D072E /* SimpleExpandingCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimpleExpandingCell.swift; sourceTree = "<group>"; };
@@ -78,6 +80,7 @@
 				144334BF1D690ABC00E2F511 /* SimpleHeaderView.swift */,
 				1466AE121D67F706006D072E /* SimpleExpandingCell.swift */,
 				1466AE0E1D661EA2006D072E /* ExpandingView.swift */,
+				144334C41D690B6700E2F511 /* FloatingAddButton.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -266,6 +269,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				144334C51D690B6700E2F511 /* FloatingAddButton.swift in Sources */,
 				1466AE131D67F706006D072E /* SimpleExpandingCell.swift in Sources */,
 				14C491291D66156F00390756 /* ExpandingTableViewCell.swift in Sources */,
 				1466AE111D67F39F006D072E /* Helpers.swift in Sources */,
