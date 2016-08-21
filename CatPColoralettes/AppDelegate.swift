@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RESideMenu
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -15,8 +16,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
   func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-    
-//    let rootVC = PaletteTableViewController()
     let rootVC = PaletteViewController()
     let navigationController: UINavigationController = UINavigationController(rootViewController: rootVC)
     navigationController.navigationBar.barTintColor = AppColors.DefaultBackground
@@ -24,8 +23,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
       NSForegroundColorAttributeName : AppColors.DefaultTitleText,
       NSFontAttributeName : AppFonts.Header
     ]
+    
+    // TODO: update leftMenuController to use a custom menu subclass
+    // TODO: disable right menu, or just make it the same instance of the left controller
+    // TODO: update background on menu
+    // TODO: test with background image and adjust parallax settings
+    let slidingNavigationMenu: RESideMenu = RESideMenu(contentViewController: navigationController,
+                                                       leftMenuViewController: ViewController(),
+                                                       rightMenuViewController: ViewController())
+    slidingNavigationMenu.bouncesHorizontally = false
+    slidingNavigationMenu.animationDuration = 0.25
     self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
-    self.window?.rootViewController = navigationController
+    self.window?.rootViewController = slidingNavigationMenu //navigationController
     self.window?.makeKeyAndVisible()
     
     return true

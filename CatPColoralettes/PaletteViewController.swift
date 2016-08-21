@@ -9,10 +9,13 @@
 import Foundation
 import UIKit
 import SnapKit
+import RESideMenu
 
 internal class PaletteViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
   
+  // ---------------------------------------------------------------- //
   // MARK: - Instance Vars
+  
   // Internal
   internal var paletteManager: ExpandingViewGroupManager!
   internal var debugPaletteManager: ExpandingViewGroupManager!
@@ -214,16 +217,27 @@ internal class PaletteViewController: UIViewController, UITableViewDelegate, UIT
     
   }
   
-  
-  // MARK: - Other
-  override func prefersStatusBarHidden() -> Bool {
-    return true
+  // ---------------------------------------------------------------- //
+  // MARK: - Actions
+  internal func showMenu(sender: AnyObject?) {
+    self.navigationController?.presentLeftMenuViewController(self)
   }
   
   
+  // ---------------------------------------------------------------- //
+  // MARK: - Other
+  override func preferredStatusBarStyle() -> UIStatusBarStyle {
+    return UIStatusBarStyle.LightContent
+  }
+  
+  
+  // ---------------------------------------------------------------- //
   // MARK: - Lazy Inits
   internal lazy var tableView: UITableView = {
     let tableView: UITableView = UITableView(frame: CGRectZero, style: .Plain)
+    tableView.tableHeaderView = SimpleTableTitleView(withTitle: AppStrings.PaletteVCTile)
     return tableView
   }()
+  
+  internal lazy var tableTitleView: SimpleTableTitleView = SimpleTableTitleView(withTitle: AppStrings.PaletteVCTile)
 }
