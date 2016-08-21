@@ -76,6 +76,11 @@ internal class PaletteViewController: UIViewController, UITableViewDelegate, UIT
     self.tableView.backgroundColor = AppColors.DefaultBackground
     self.tableView.separatorColor = UIColor.clearColor()
     // TODO: adjust separator insets
+    
+    // TODO: adjust style on this header and remove text from nav
+    let label: UILabel = UILabel(frame: CGRect(origin: CGPoint(x: 0, y: 0), size: CGSize(width: 100.0, height: 75.0)))
+    label.text = AppStrings.PaletteVCTile
+    self.tableView.tableHeaderView = label
   }
   
   
