@@ -28,6 +28,9 @@ internal class PaletteViewController: UIViewController, UITableViewDelegate, UIT
   private var lastDrawUpdate: NSDate = NSDate()
   private var timeSinceLastDrawUpdate: NSTimeInterval = 0.0
   
+  private var frameCheckToken: dispatch_once_t = 0
+  private var originalFloatingButtonFrame: CGRect = CGRectZero
+  
   // Calculated
   internal var debugPallete: [ColorPalette] {
     return [
@@ -37,6 +40,7 @@ internal class PaletteViewController: UIViewController, UITableViewDelegate, UIT
   }
   
   
+  // ---------------------------------------------------------------- //
   // MARK: - View Lifecycle
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -47,7 +51,21 @@ internal class PaletteViewController: UIViewController, UITableViewDelegate, UIT
     self.adjustSubclass()
   }
   
-  // private catthoughts setup functions
+  override func viewWillAppear(animated: Bool) {
+    self.updateNavigationBar()
+  }
+  
+  override func viewDidLayoutSubviews() {
+    super.viewDidLayoutSubviews()
+    dispatch_once(&frameCheckToken) {
+      // keep a record of the original position for it to return to later
+      self.originalFloatingButtonFrame = self.floatingPlusButton.frame
+    }
+  }
+  
+  
+  // ---------------------------------------------------------------- //
+  // MARK: - Setup
   private func configureConstraints() {
     self.tableView.snp_makeConstraints { (make) in
       make.size.equalTo(self.view.snp_size)
@@ -58,11 +76,15 @@ internal class PaletteViewController: UIViewController, UITableViewDelegate, UIT
       self.floatingPlusButtonBottomConstraint = make.bottom.equalTo(self.view).offset(self.visibleButtonOffset).constraint
       make.centerX.equalTo(self.view)
     }
+
   }
   
   private func setupViewHierarchy() {
     self.view.addSubview(self.tableView)
     self.view.addSubview(floatingPlusButton)
+    
+    // TODO: not really sure why the offset isn't taking the tableTitleView into account on first load, fix later
+//    self.tableView.tableHeaderView = self.tableTitleView
   }
   
   private func adjustSubclass() {
@@ -76,14 +98,19 @@ internal class PaletteViewController: UIViewController, UITableViewDelegate, UIT
     self.tableView.backgroundColor = AppColors.DefaultBackground
     self.tableView.separatorColor = UIColor.clearColor()
     // TODO: adjust separator insets
-    
-    // TODO: adjust style on this header and remove text from nav
-    let label: UILabel = UILabel(frame: CGRect(origin: CGPoint(x: 0, y: 0), size: CGSize(width: 100.0, height: 75.0)))
-    label.text = AppStrings.PaletteVCTile
-    self.tableView.tableHeaderView = label
+  }
+  
+  private func updateNavigationBar() {
+    let menuBarButton: UIBarButtonItem = UIBarButtonItem(image: UIImage(named: "palette")?.imageWithRenderingMode(.AlwaysTemplate),
+                                                         style: .Plain,
+                                                         target: self,
+                                                         action: #selector(PaletteViewController.showMenu(_:)))
+    self.navigationController?.navigationBar.tintColor = AppColors.DefaultTitleText
+    self.navigationItem.setLeftBarButtonItem(menuBarButton, animated: false)
   }
   
   
+  // ---------------------------------------------------------------- //
   // MARK: UITableviewDataSource
   internal func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
     
@@ -128,6 +155,7 @@ internal class PaletteViewController: UIViewController, UITableViewDelegate, UIT
   }
   
   
+  // ---------------------------------------------------------------- //
   // MARK: - UITableViewDelegate
   internal func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
     //TODO: - needs reimplementation for smooth animations, i think..
@@ -135,6 +163,7 @@ internal class PaletteViewController: UIViewController, UITableViewDelegate, UIT
   }
   
   
+  // ---------------------------------------------------------------- //
   // MARK: - Scrolling Delegate
   internal func scrollViewDidScroll(scrollView: UIScrollView) {
     

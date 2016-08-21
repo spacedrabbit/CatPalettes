@@ -16,6 +16,7 @@ class ViewController: UIViewController {
     self.view.backgroundColor = UIColor.redColor()
     
     let expanding: ExpandingView = ExpandingView()
+    expanding.backgroundColor = UIColor.blueColor()
     self.view.addSubview(expanding)
     
     expanding.snp_makeConstraints { (make) in
