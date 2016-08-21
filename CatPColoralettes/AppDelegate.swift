@@ -16,7 +16,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
   func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
     
-    let rootVC = PaletteTableViewController()
+//    let rootVC = PaletteTableViewController()
+    let rootVC = PaletteViewController()
     let navigationController: UINavigationController = UINavigationController(rootViewController: rootVC)
     navigationController.navigationBar.barTintColor = AppColors.DefaultBackground
     navigationController.navigationBar.titleTextAttributes = [
