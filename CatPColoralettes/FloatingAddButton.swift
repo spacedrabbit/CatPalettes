@@ -10,18 +10,15 @@ import Foundation
 import UIKit
 
 internal class FloatingButton: UIView {
+  
+  
   internal static let ButtonSize: CGFloat = 48.0
   internal static var CornerRadius: CGFloat {
     return FloatingButton.ButtonSize * 0.5
   }
-
-  lazy internal var imageView: UIImageView = {
-    let view: UIImageView = UIImageView(image: UIImage(named: "plus")!.imageWithRenderingMode(.AlwaysTemplate))
-    view.tintColor = AppColors.DefaultTitleText
-    view.contentMode = .ScaleAspectFit
-    return view
-  }()
   
+  
+  // MARK: - Init
   override init(frame: CGRect) {
     super.init(frame: frame)
     
@@ -29,10 +26,10 @@ internal class FloatingButton: UIView {
     self.configureConstraints()
   }
   
-  required init?(coder aDecoder: NSCoder) {
-    fatalError()
-  }
+  required init?(coder aDecoder: NSCoder) { fatalError() }
   
+  
+  // MARK: - Setup
   private func configureConstraints() {
     self.snp_makeConstraints { (make) in
       make.size.equalTo(CGSizeMake(FloatingButton.ButtonSize, FloatingButton.ButtonSize))
@@ -53,12 +50,34 @@ internal class FloatingButton: UIView {
     self.addSubview(imageView)
     
     self.clipsToBounds = true
-    self.blurryBackgroundView.alpha = 0.5
     self.layer.cornerRadius = FloatingButton.CornerRadius
   }
   
+  
+  // MARK: - Animations
+  internal func toggleAppearance() {
+    
+    
+  }
+  
+  private func animateIn() {
+    
+  }
+  
+  private func animateOut() {
+    
+  }
+  
+  
+  // MARK: - Lazy Instances
   // TODO: This will need some style adjustment
   lazy internal var blurryBackgroundView: UIVisualEffectView = UIVisualEffectView(effect: UIBlurEffect(style: .ExtraLight))
   // TODO: switch image view to be a UIControl and add image to it as subview. then adjust the control states
   
+  lazy internal var imageView: UIImageView = {
+    let view: UIImageView = UIImageView(image: UIImage(named: "plus")!.imageWithRenderingMode(.AlwaysTemplate))
+    view.tintColor = AppColors.DefaultTitleText
+    view.contentMode = .ScaleAspectFit
+    return view
+  }()
 }

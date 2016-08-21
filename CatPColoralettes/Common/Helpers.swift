@@ -21,6 +21,10 @@ internal struct AppFonts {
   internal static let SectionTitle: UIFont = UIFont.systemFontOfSize(20.0, weight: UIFontWeightMedium)
 }
 
+internal struct AppStrings {
+  internal static let PaletteVCTile: String = "Palettes"
+}
+
 
 // MARK: - Any helpful functions
 internal func randomZeroToOne() -> CGFloat {
