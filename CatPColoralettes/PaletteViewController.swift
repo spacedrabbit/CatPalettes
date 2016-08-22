@@ -92,7 +92,7 @@ internal class PaletteViewController: UIViewController, UITableViewDelegate, UIT
   
   private func adjustSubclass() {
     self.view.backgroundColor = AppColors.DefaultBackground
-    self.title = AppStrings.PaletteVCTile
+//    self.title = AppStrings.PaletteVCTile
     
     self.tableView.dataSource = self
     self.tableView.delegate = self
@@ -162,7 +162,10 @@ internal class PaletteViewController: UIViewController, UITableViewDelegate, UIT
   // MARK: - UITableViewDelegate
   internal func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
     //TODO: - needs reimplementation for smooth animations, i think..
-    tableView.reloadData()
+    
+    let selectedCell: SimpleExpandingCell = tableView.cellForRowAtIndexPath(indexPath) as! SimpleExpandingCell
+    selectedCell.simulateTap()
+    self.tableView.reloadData()
   }
   
   

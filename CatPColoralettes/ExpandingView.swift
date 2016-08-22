@@ -50,6 +50,8 @@ class ExpandingView: UIView {
     self.setupViewHierarchy()
     self.configureConstraints()
     self.addGestures()
+    
+    self.optionsView.backgroundColor = UIColor.cyanColor()
   }
   
   override init(frame: CGRect) {
@@ -91,8 +93,8 @@ class ExpandingView: UIView {
   private func setupViewHierarchy() {
     self.addSubview(containerView)
     
-    self.containerView.addSubview(stackView)
     self.containerView.addSubview(optionsView)
+    self.containerView.addSubview(stackView)
     self.containerView.addSubview(overlayView)
     
     self.colorViews.forEach { (view) in
@@ -100,6 +102,7 @@ class ExpandingView: UIView {
     }
   }
   
+  // TODO: remove gesture if def staying with tableview delegate handling it
   private func addGestures() {
     self.tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(ExpandingView.didTapView))
     self.addGestureRecognizer(self.tapRecognizer)
@@ -112,10 +115,7 @@ class ExpandingView: UIView {
     
     let newOffset = self.isExpanded ? -ExpandingView.OptionsViewHeight : ExpandingView.OptionsViewHeight
     self.optionsViewTopConstrain?.updateOffset(newOffset)
-    
-    UIView.animateWithDuration(0.15, animations: {
-      self.layoutIfNeeded()
-      }, completion: nil)
+    self.layoutIfNeeded()
     
     self.isExpanded = !self.isExpanded
   }
@@ -123,6 +123,6 @@ class ExpandingView: UIView {
   
   // MARK: - Gestures 
   internal func didTapView(sender: AnyObject?) {
-    self.toggleCellExpansion()
+    // not being utilized at the moment, cell directly is calling toggle cell expansion on tap
   }
 }
