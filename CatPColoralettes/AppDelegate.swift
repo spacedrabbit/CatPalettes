@@ -34,6 +34,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     slidingNavigationMenu.bouncesHorizontally = false
     slidingNavigationMenu.animationDuration = 0.25
     slidingNavigationMenu.backgroundImage = UIImage(named: "geo_background")
+    
+    MenuManager.initialize(withMenu: slidingNavigationMenu)
+    
     self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
     self.window?.rootViewController = slidingNavigationMenu //navigationController
     self.window?.makeKeyAndVisible()
