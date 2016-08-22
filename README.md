@@ -5,6 +5,10 @@
 ...animation. it looks less broken than the attempt at reloading following the animation block. Further, the table refresh should be obvious following the cell animation since both are executing on the main queue and thus in serial. But now that I think about it, the examples in my mind of apps that have this feature (the tap to expand) all do so in an instataneous manner. 
 
 
+8/22 - Notes on 6fa432e 'adds menu vc, changes color'
+
+...theme, adds geobackground image, credits added to README. It was at this point I decided to refocus on the actual MVP instead of the nice animations I'd envisioned the app to have. So i removed a bunch of code related to the show/hiding of the floating '+' icon at the bottom of the palettes view controller. 
+
 -------------------------
 ### Credits:
 
