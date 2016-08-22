@@ -48,7 +48,7 @@ internal class SimpleExpandingCell: UITableViewCell {
   private func adjustSubclass() {
     // make any changes to subclass properties
     self.selectionStyle = .None
-    self.backgroundColor = AppColors.DefaultBackground
+    self.backgroundColor = AppColors.LightGeoBackgroundTheme
   }
   
   internal func simulateTap() {

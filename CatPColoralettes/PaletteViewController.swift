@@ -91,15 +91,13 @@ internal class PaletteViewController: UIViewController, UITableViewDelegate, UIT
   }
   
   private func adjustSubclass() {
-    self.view.backgroundColor = AppColors.DefaultBackground
-//    self.title = AppStrings.PaletteVCTile
-    
+    self.view.backgroundColor = AppColors.LightGeoBackgroundTheme
     self.tableView.dataSource = self
     self.tableView.delegate = self
     self.tableView.estimatedRowHeight = 80.0
     self.tableView.rowHeight = UITableViewAutomaticDimension
-    self.tableView.backgroundColor = AppColors.DefaultBackground
-    self.tableView.separatorColor = UIColor.clearColor()
+    self.tableView.backgroundColor = AppColors.LightGeoBackgroundTheme
+    self.tableView.separatorColor = AppColors.Clear
     // TODO: adjust separator insets
   }
   
@@ -161,8 +159,6 @@ internal class PaletteViewController: UIViewController, UITableViewDelegate, UIT
   // ---------------------------------------------------------------- //
   // MARK: - UITableViewDelegate
   internal func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-    //TODO: - needs reimplementation for smooth animations, i think..
-    
     let selectedCell: SimpleExpandingCell = tableView.cellForRowAtIndexPath(indexPath) as! SimpleExpandingCell
     selectedCell.simulateTap()
     self.tableView.reloadData()
@@ -174,7 +170,7 @@ internal class PaletteViewController: UIViewController, UITableViewDelegate, UIT
   internal func scrollViewDidScroll(scrollView: UIScrollView) {
     
     if self.timeSinceLastDrawUpdate >=  0.1 {
-      self.updateFloatingButtonPosition(scrollView.contentOffset.y)
+
     }
     else {
       // note: tried adding in a time limit to see if that was what was causing the flashing, but it seems as though its
@@ -201,24 +197,6 @@ internal class PaletteViewController: UIViewController, UITableViewDelegate, UIT
     print("Velocity ending: \(velocity)") // pts/sec I think... negative indicates scrolling from bottom -> top
   }
   
-  private func updateFloatingButtonPosition(deltaY: CGFloat) {
-
-    let currentFloatingBottomConstraintOffset: CGFloat = self.view.frame.height - (self.floatingPlusButton.frame.origin.y + self.floatingPlusButton.frame.height)
-    if self.tableView.contentOffset.y >= -44.0 { // scrolling down
-      UIView.animateWithDuration(0.0, delay: 0.0, options: .BeginFromCurrentState, animations: {
-        self.floatingPlusButtonBottomConstraint?.updateOffset(self.visibleButtonOffset)
-        }, completion: nil)
-      let newYOrigin = self.view.frame.height - (self.floatingPlusButton.frame.height + 40.0)
-      self.floatingPlusButton.frame = CGRectMake(self.floatingPlusButton.frame.origin.x, newYOrigin, self.floatingPlusButton.frame.width, self.floatingPlusButton.frame.height)
-    }
-    else if self.tableView.contentOffset.y < -44.0 { // scrolling up
-      let originalRect = self.floatingPlusButton.frame
-      UIView.animateWithDuration(0.0, delay: 0.0, options: .BeginFromCurrentState, animations: {
-        self.floatingPlusButton.frame = CGRectMake(originalRect.origin.x, originalRect.origin.y - (currentFloatingBottomConstraintOffset + deltaY), originalRect.size.width, originalRect.size.height)
-        }, completion: nil)
-    }
-    
-  }
   
   // ---------------------------------------------------------------- //
   // MARK: - Actions

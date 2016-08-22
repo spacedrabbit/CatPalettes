@@ -18,7 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
     let rootVC = PaletteViewController()
     let navigationController: UINavigationController = UINavigationController(rootViewController: rootVC)
-    navigationController.navigationBar.barTintColor = AppColors.DefaultBackground
+    navigationController.navigationBar.barTintColor = AppColors.LightGeoBackgroundTheme
     navigationController.navigationBar.titleTextAttributes = [
       NSForegroundColorAttributeName : AppColors.DefaultTitleText,
       NSFontAttributeName : AppFonts.Header
@@ -29,10 +29,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // TODO: update background on menu
     // TODO: test with background image and adjust parallax settings
     let slidingNavigationMenu: RESideMenu = RESideMenu(contentViewController: navigationController,
-                                                       leftMenuViewController: ViewController(),
+                                                       leftMenuViewController: MenuViewController(),
                                                        rightMenuViewController: ViewController())
     slidingNavigationMenu.bouncesHorizontally = false
     slidingNavigationMenu.animationDuration = 0.25
+    slidingNavigationMenu.backgroundImage = UIImage(named: "geo_background")
     self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
     self.window?.rootViewController = slidingNavigationMenu //navigationController
     self.window?.makeKeyAndVisible()

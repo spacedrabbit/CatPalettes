@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1441546C1D6B99AE00BA03D0 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1441546B1D6B99AE00BA03D0 /* MenuViewController.swift */; };
 		144334C01D690ABC00E2F511 /* SimpleHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144334BF1D690ABC00E2F511 /* SimpleHeaderView.swift */; };
 		144334C51D690B6700E2F511 /* FloatingAddButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144334C41D690B6700E2F511 /* FloatingAddButton.swift */; };
 		1466AE0F1D661EA2006D072E /* ExpandingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1466AE0E1D661EA2006D072E /* ExpandingView.swift */; };
@@ -26,6 +27,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1441546B1D6B99AE00BA03D0 /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		144334BF1D690ABC00E2F511 /* SimpleHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimpleHeaderView.swift; sourceTree = "<group>"; };
 		144334C41D690B6700E2F511 /* FloatingAddButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FloatingAddButton.swift; sourceTree = "<group>"; };
 		1466AE0E1D661EA2006D072E /* ExpandingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExpandingView.swift; sourceTree = "<group>"; };
@@ -72,6 +74,7 @@
 			isa = PBXGroup;
 			children = (
 				14C491261D6610CC00390756 /* PaletteViewController.swift */,
+				1441546B1D6B99AE00BA03D0 /* MenuViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -279,6 +282,7 @@
 				1466AE151D67FD4C006D072E /* ColorPalette.swift in Sources */,
 				14C491271D6610CC00390756 /* PaletteViewController.swift in Sources */,
 				144334C01D690ABC00E2F511 /* SimpleHeaderView.swift in Sources */,
+				1441546C1D6B99AE00BA03D0 /* MenuViewController.swift in Sources */,
 				14C491161D660F1A00390756 /* ViewController.swift in Sources */,
 				14D3BE241D6A2EAD0024A9D8 /* SimpleTableTitleView.swift in Sources */,
 				1466AE0F1D661EA2006D072E /* ExpandingView.swift in Sources */,

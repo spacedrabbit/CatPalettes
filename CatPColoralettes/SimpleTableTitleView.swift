@@ -36,7 +36,7 @@ internal class SimpleTableTitleView: UIView {
   
   private func setupViewHierarchy() {
     self.addSubview(titleLabel)
-    self.backgroundColor = AppColors.DefaultBackground
+    self.backgroundColor = AppColors.LightGeoBackgroundTheme
   }
   
   internal lazy var titleLabel: UILabel = {
