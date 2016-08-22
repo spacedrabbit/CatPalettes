@@ -11,7 +11,7 @@ import UIKit
 import SnapKit
 import RESideMenu
 
-internal class PaletteViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+internal class PaletteViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, FloatingButtonDelegate {
   
   // ---------------------------------------------------------------- //
   // MARK: - Instance Vars
@@ -86,6 +86,7 @@ internal class PaletteViewController: UIViewController, UITableViewDelegate, UIT
     self.view.addSubview(self.tableView)
     self.view.addSubview(floatingPlusButton)
     
+    floatingPlusButton.delegate = self
     // TODO: not really sure why the offset isn't taking the tableTitleView into account on first load, fix later
 //    self.tableView.tableHeaderView = self.tableTitleView
   }
@@ -195,6 +196,14 @@ internal class PaletteViewController: UIViewController, UITableViewDelegate, UIT
   
   internal func scrollViewWillEndDragging(scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
     print("Velocity ending: \(velocity)") // pts/sec I think... negative indicates scrolling from bottom -> top
+  }
+  
+  
+  // ---------------------------------------------------------------- //
+  // MARK: - Floating Button Delegate
+  internal func didTapFloatingButton() {
+   print("delegate alerted")
+    // TODO: transition to next VC
   }
   
   
