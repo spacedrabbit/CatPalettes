@@ -11,11 +11,14 @@
 		1441546F1D6BBD9900BA03D0 /* MenuManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1441546E1D6BBD9900BA03D0 /* MenuManager.swift */; };
 		144334C01D690ABC00E2F511 /* SimpleHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144334BF1D690ABC00E2F511 /* SimpleHeaderView.swift */; };
 		144334C51D690B6700E2F511 /* FloatingAddButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144334C41D690B6700E2F511 /* FloatingAddButton.swift */; };
+		1453BE781D6CDCCB009B88B2 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1453BE771D6CDCCB009B88B2 /* Accelerate.framework */; };
+		1453BE7A1D6CDCD3009B88B2 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1453BE791D6CDCD3009B88B2 /* QuartzCore.framework */; };
 		1466AE0F1D661EA2006D072E /* ExpandingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1466AE0E1D661EA2006D072E /* ExpandingView.swift */; };
 		1466AE111D67F39F006D072E /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1466AE101D67F39E006D072E /* Helpers.swift */; };
 		1466AE131D67F706006D072E /* SimpleExpandingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1466AE121D67F706006D072E /* SimpleExpandingCell.swift */; };
 		1466AE151D67FD4C006D072E /* ColorPalette.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1466AE141D67FD4C006D072E /* ColorPalette.swift */; };
 		1466AE171D67FEDE006D072E /* ExpansionGroupManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1466AE161D67FEDE006D072E /* ExpansionGroupManager.swift */; };
+		14B4E6101D6CDF1200EADED7 /* PaletteSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B4E60F1D6CDF1200EADED7 /* PaletteSelectionViewController.swift */; };
 		14C491141D660F1A00390756 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C491131D660F1A00390756 /* AppDelegate.swift */; };
 		14C491161D660F1A00390756 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C491151D660F1A00390756 /* ViewController.swift */; };
 		14C491191D660F1A00390756 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14C491171D660F1A00390756 /* Main.storyboard */; };
@@ -32,11 +35,14 @@
 		1441546E1D6BBD9900BA03D0 /* MenuManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MenuManager.swift; path = Common/MenuManager.swift; sourceTree = "<group>"; };
 		144334BF1D690ABC00E2F511 /* SimpleHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimpleHeaderView.swift; sourceTree = "<group>"; };
 		144334C41D690B6700E2F511 /* FloatingAddButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FloatingAddButton.swift; sourceTree = "<group>"; };
+		1453BE771D6CDCCB009B88B2 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
+		1453BE791D6CDCD3009B88B2 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		1466AE0E1D661EA2006D072E /* ExpandingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExpandingView.swift; sourceTree = "<group>"; };
 		1466AE101D67F39E006D072E /* Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Helpers.swift; path = Common/Helpers.swift; sourceTree = "<group>"; };
 		1466AE121D67F706006D072E /* SimpleExpandingCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimpleExpandingCell.swift; sourceTree = "<group>"; };
 		1466AE141D67FD4C006D072E /* ColorPalette.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorPalette.swift; sourceTree = "<group>"; };
 		1466AE161D67FEDE006D072E /* ExpansionGroupManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExpansionGroupManager.swift; sourceTree = "<group>"; };
+		14B4E60F1D6CDF1200EADED7 /* PaletteSelectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaletteSelectionViewController.swift; sourceTree = "<group>"; };
 		14C491101D660F1A00390756 /* CatPColoralettes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CatPColoralettes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		14C491131D660F1A00390756 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		14C491151D660F1A00390756 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -57,6 +63,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1453BE7A1D6CDCD3009B88B2 /* QuartzCore.framework in Frameworks */,
+				1453BE781D6CDCCB009B88B2 /* Accelerate.framework in Frameworks */,
 				22D780F5654F925BCF4E56B3 /* Pods_CatPColoralettes.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -97,6 +105,7 @@
 			children = (
 				14C491261D6610CC00390756 /* PaletteViewController.swift */,
 				1441546B1D6B99AE00BA03D0 /* MenuViewController.swift */,
+				14B4E60F1D6CDF1200EADED7 /* PaletteSelectionViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -158,6 +167,8 @@
 		26364B4CCCC807C7F3FA76CC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1453BE791D6CDCD3009B88B2 /* QuartzCore.framework */,
+				1453BE771D6CDCCB009B88B2 /* Accelerate.framework */,
 				4F393964AA30400E9D4E3D4C /* Pods_CatPColoralettes.framework */,
 			);
 			name = Frameworks;
@@ -305,6 +316,7 @@
 				1441546C1D6B99AE00BA03D0 /* MenuViewController.swift in Sources */,
 				14C491161D660F1A00390756 /* ViewController.swift in Sources */,
 				14D3BE241D6A2EAD0024A9D8 /* SimpleTableTitleView.swift in Sources */,
+				14B4E6101D6CDF1200EADED7 /* PaletteSelectionViewController.swift in Sources */,
 				1466AE0F1D661EA2006D072E /* ExpandingView.swift in Sources */,
 				1466AE171D67FEDE006D072E /* ExpansionGroupManager.swift in Sources */,
 				14C491141D660F1A00390756 /* AppDelegate.swift in Sources */,

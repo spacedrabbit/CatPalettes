@@ -16,6 +16,7 @@ internal struct AppColors {
   internal static let DefaultTitleText: UIColor = hexStringToUIColor("F6F6F7")
   internal static let DarkGeoBackgroundTheme: UIColor = hexStringToUIColor("95756F")
   internal static let LightGeoBackgroundTheme: UIColor = UIColor(red: (122.0/255.0), green: (93.0/255.0), blue: (125.0/255.0), alpha: 1.0)
+  internal static let LightGray: UIColor = UIColor(red: (120.0/255.0), green: (120.0/255.0), blue: (120.0/255.0), alpha: 1.0)
   internal static let Clear: UIColor = UIColor.clearColor()
 }
 
@@ -65,3 +66,26 @@ internal func hexStringToUIColor(hex: String) -> UIColor {
   )
 }
 
+internal func rgbComponentsFrom(color: UIColor) -> (r: CGFloat, g: CGFloat, b: CGFloat) {
+  var redComponent: CGFloat = 0.0,
+  blueComponent: CGFloat = 0.0,
+  greenComponent: CGFloat = 0.0,
+  alphaComponent: CGFloat = 0.0
+  
+  color.getRed(&redComponent, green: &greenComponent, blue: &blueComponent, alpha: &alphaComponent)
+  
+  let redValueRGB = redComponent * 255.0
+  let greenValueRGB = greenComponent * 255.0
+  let blueValueRGB = blueComponent * 255.0
+  
+  return (redValueRGB, greenValueRGB, blueValueRGB)
+}
+
+internal func hexValueFrom(color: UIColor) -> (String) {
+  let (red, green, blue) = rgbComponentsFrom(color)
+  let redValueHex = String(UInt32(red), radix: 16, uppercase: true)
+  let greenValueHex = String(UInt32(green), radix: 16, uppercase: true)
+  let blueValueHex = String(UInt32(blue), radix: 16, uppercase: true)
+  
+  return "\(redValueHex)\(greenValueHex)\(blueValueHex)"
+}

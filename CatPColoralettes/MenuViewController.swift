@@ -92,7 +92,7 @@ class MenuViewController: UIViewController {
   internal func presentGradientViewController() {
     if let navVC: UINavigationController = MenuManager.contentViewController as? UINavigationController {
       if let paletteVC: PaletteViewController = navVC.topViewController as? PaletteViewController {
-        let gradientVC = ViewController()
+        let gradientVC = PaletteSelectionViewController() //ViewController()
         navVC.pushViewController(gradientVC, animated: true)
         navVC.viewControllers = [gradientVC]
         MenuManager.shared.managedMenu.hideMenuViewController()
