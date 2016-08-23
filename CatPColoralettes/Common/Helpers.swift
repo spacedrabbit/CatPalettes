@@ -33,6 +33,10 @@ internal struct AppStrings {
   internal static let SettingsTitle: String = "Settings"
 }
 
+internal enum AppMenuButton: Int {
+  case Palette, Gradient, Settings, Profile
+}
+
 
 // MARK: - Any helpful functions
 internal func randomZeroToOne() -> CGFloat {

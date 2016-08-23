@@ -115,8 +115,8 @@
 		144334C21D690AF500E2F511 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				144B3C4B1D6D0411006B4597 /* Base */,
 				1441546B1D6B99AE00BA03D0 /* MenuViewController.swift */,
-				144B3C491D6D0319006B4597 /* BasePaletteViewController.swift */,
 				14C491261D6610CC00390756 /* PaletteViewController.swift */,
 				14B4E60F1D6CDF1200EADED7 /* PaletteSelectionViewController.swift */,
 			);
@@ -131,6 +131,14 @@
 				144334C41D690B6700E2F511 /* FloatingAddButton.swift */,
 			);
 			name = Views;
+			sourceTree = "<group>";
+		};
+		144B3C4B1D6D0411006B4597 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				144B3C491D6D0319006B4597 /* BasePaletteViewController.swift */,
+			);
+			name = Base;
 			sourceTree = "<group>";
 		};
 		14B4E6111D6CFC5D00EADED7 /* HSVColorPicker */ = {

@@ -71,34 +71,75 @@ class MenuViewController: UIViewController {
   }
   
   internal func addButtonBehaviours() {
-    self.palettesButton.addTarget(self, action: #selector(MenuViewController.presentPalleteViewController), forControlEvents: .TouchUpInside)
-    self.gradientsButton.addTarget(self, action: #selector(MenuViewController.presentGradientViewController), forControlEvents: .TouchUpInside)
+    self.palettesButton.addTarget(self, action: #selector(MenuViewController.menuSelectionMade(_:)), forControlEvents: .TouchUpInside)
+    self.gradientsButton.addTarget(self, action: #selector(MenuViewController.menuSelectionMade(_:)), forControlEvents: .TouchUpInside)
   }
   
+  private func route(forSelectedButton button: UIButton) -> BasePaletteViewController {
+    
+    var returnedVC = BasePaletteViewController()
+    
+    switch button.tag {
+    case AppMenuButton.Palette.rawValue:
+      print("palette selected")
+      returnedVC = PaletteViewController()
+      
+    case AppMenuButton.Gradient.rawValue:
+      print("gradient selected")
+      returnedVC = PaletteSelectionViewController()
+      
+    case AppMenuButton.Profile.rawValue:
+      print("profile tapped")
+      
+    case AppMenuButton.Settings.rawValue:
+      print("settings tapped")
+      
+    default:
+      print("Unknown tapped")
+    }
+    
+    return returnedVC
+  }
   
   // ---------------------------------------------------------------- //
   // MARK: - Actions
-  internal func presentPalleteViewController() {
-    if let navVC: UINavigationController = MenuManager.contentViewController as? UINavigationController {
-      if let gradientVC: ViewController = navVC.topViewController as? ViewController {
-        let paletteVC = PaletteViewController()
-        navVC.pushViewController(paletteVC, animated: true)
-        navVC.viewControllers = [paletteVC]
+  internal func menuSelectionMade(sender: AnyObject?) {
+    if let button: UIButton = sender as? UIButton {
+      if let navVC: UINavigationController = MenuManager.contentViewController as? UINavigationController {
+        let destinationVC = self.route(forSelectedButton: button)
+        if !MenuManager.shared.previousViewController(wasType: destinationVC) {
+          navVC.pushViewController(destinationVC, animated: true)
+          navVC.viewControllers = [destinationVC]
+        }
+        
         MenuManager.shared.managedMenu.hideMenuViewController()
       }
+    }
+  }
+  
+  
+  internal func presentPalleteViewController(sender: AnyObject?) {
+    if let navVC: UINavigationController = MenuManager.contentViewController as? UINavigationController {
+      let destinationVC = PaletteViewController()
+      if !MenuManager.shared.previousViewController(wasType: destinationVC) {
+        navVC.pushViewController(destinationVC, animated: true)
+        navVC.viewControllers = [destinationVC]
+      }
+      
+      MenuManager.shared.managedMenu.hideMenuViewController()
     }
   }
   
   internal func presentGradientViewController() {
     if let navVC: UINavigationController = MenuManager.contentViewController as? UINavigationController {
-      if let paletteVC: PaletteViewController = navVC.topViewController as? PaletteViewController {
-        let gradientVC = PaletteSelectionViewController() //ViewController()
-        navVC.pushViewController(gradientVC, animated: true)
-        navVC.viewControllers = [gradientVC]
-        MenuManager.shared.managedMenu.hideMenuViewController()
+      let destinationVC = PaletteSelectionViewController()
+      if !MenuManager.shared.previousViewController(wasType: destinationVC) {
+        navVC.pushViewController(destinationVC, animated: true)
+        navVC.viewControllers = [destinationVC]
       }
+      
+      MenuManager.shared.managedMenu.hideMenuViewController()
     }
-
   }
   
   // MARK: - Other
@@ -115,6 +156,7 @@ class MenuViewController: UIViewController {
     button.setTitle(AppStrings.PaletteVCTile, forState: .Normal)
     button.titleLabel?.font = AppFonts.MenuButtonText
     button.titleLabel?.textColor = AppColors.DefaultTitleText
+    button.tag = AppMenuButton.Palette.rawValue
     return button
   }()
   
@@ -123,6 +165,7 @@ class MenuViewController: UIViewController {
     button.setTitle(AppStrings.GradientsTitle, forState: .Normal)
     button.titleLabel?.font = AppFonts.MenuButtonText
     button.titleLabel?.textColor = AppColors.DefaultTitleText
+    button.tag = AppMenuButton.Gradient.rawValue
     return button
   }()
   
@@ -131,6 +174,7 @@ class MenuViewController: UIViewController {
     button.setTitle(AppStrings.SettingsTitle, forState: .Normal)
     button.titleLabel?.font = AppFonts.MenuButtonText
     button.titleLabel?.textColor = AppColors.DefaultTitleText
+    button.tag = AppMenuButton.Settings.rawValue
     return button
   }()
   
@@ -139,6 +183,7 @@ class MenuViewController: UIViewController {
     button.setTitle(AppStrings.ProfileTitle, forState: .Normal)
     button.titleLabel?.font = AppFonts.MenuButtonText
     button.titleLabel?.textColor = AppColors.DefaultTitleText
+    button.tag = AppMenuButton.Palette.rawValue
     return button
   }()
 }

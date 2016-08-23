@@ -36,7 +36,7 @@ internal class MenuManager: NSObject, RESideMenuDelegate {
   // MARK: - Helpers 
   internal func previousViewController<T: UIViewController>(wasType type: T) -> Bool {
     if let previousVC = self.previousViewController {
-      if previousVC.self is T {
+      if previousVC.self is T { // TODO: not sure if this is doing what I think it should be, double check docs later
         return true
       }
     }
@@ -73,7 +73,9 @@ internal class MenuManager: NSObject, RESideMenuDelegate {
   }
   
   func sideMenu(sideMenu: RESideMenu!, willShowMenuViewController menuViewController: UIViewController!) {
-    self.previousViewController = sideMenu.contentViewController
+    if let navVC: UINavigationController = sideMenu.contentViewController as? UINavigationController {
+      self.previousViewController = navVC.topViewController
+    }
   }
   
 }
