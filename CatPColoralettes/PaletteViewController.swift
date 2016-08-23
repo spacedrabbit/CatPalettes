@@ -11,7 +11,7 @@ import UIKit
 import SnapKit
 import RESideMenu
 
-internal class PaletteViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, FloatingButtonDelegate {
+internal class PaletteViewController: BasePaletteViewController, UITableViewDelegate, UITableViewDataSource, FloatingButtonDelegate {
   
   // ---------------------------------------------------------------- //
   // MARK: - Instance Vars
@@ -52,10 +52,6 @@ internal class PaletteViewController: UIViewController, UITableViewDelegate, UIT
     self.setupViewHierarchy()
     self.configureConstraints()
     self.adjustSubclass()
-  }
-  
-  override func viewWillAppear(animated: Bool) {
-    self.updateNavigationBar()
   }
   
   override func viewDidLayoutSubviews() {
@@ -102,15 +98,9 @@ internal class PaletteViewController: UIViewController, UITableViewDelegate, UIT
     // TODO: adjust separator insets
   }
   
-  private func updateNavigationBar() {
-    let menuBarButton: UIBarButtonItem = UIBarButtonItem(image: UIImage(named: "palette")?.imageWithRenderingMode(.AlwaysTemplate),
-                                                         style: .Plain,
-                                                         target: self,
-                                                         action: #selector(PaletteViewController.showMenu(_:)))
-    self.navigationController?.navigationBar.tintColor = AppColors.DefaultTitleText
-    self.navigationItem.setLeftBarButtonItem(menuBarButton, animated: false)
+  override func paletteButtonTapped() {
+    self.showMenu(nil)
   }
-  
   
   // ---------------------------------------------------------------- //
   // MARK: UITableviewDataSource
@@ -209,10 +199,10 @@ internal class PaletteViewController: UIViewController, UITableViewDelegate, UIT
   
   // ---------------------------------------------------------------- //
   // MARK: - Actions
-  internal func showMenu(sender: AnyObject?) {
-    self.navigationController?.presentLeftMenuViewController(self)
-  }
-  
+//  internal func showMenu(sender: AnyObject?) {
+//    self.navigationController?.presentLeftMenuViewController(self)
+//  }
+//  
   
   // ---------------------------------------------------------------- //
   // MARK: - Other

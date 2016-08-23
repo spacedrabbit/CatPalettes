@@ -9,7 +9,7 @@
 import UIKit
 import SnapKit
 
-class PaletteSelectionViewController: UIViewController, SwiftHSVColorPickerDelegate {
+class PaletteSelectionViewController: BasePaletteViewController, SwiftHSVColorPickerDelegate {
   
   internal var colorPicker: SwiftHSVColorPicker!
   
@@ -37,6 +37,9 @@ class PaletteSelectionViewController: UIViewController, SwiftHSVColorPickerDeleg
     super.didReceiveMemoryWarning()
   }
   
+  override func paletteButtonTapped() {
+    self.showMenu(nil)
+  }
   
   // ---------------------------------------------------------------- //
   // MARK: - Setup
