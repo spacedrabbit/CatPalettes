@@ -1,18 +1,15 @@
 PODS:
   - RESideMenu (4.0.7)
   - SnapKit (0.21.1)
-  - SwiftHSVColorPicker (1.0.9)
 
 DEPENDENCIES:
   - RESideMenu (~> 4.0.7)
   - SnapKit (~> 0.21.0)
-  - SwiftHSVColorPicker (~> 1.0.9)
 
 SPEC CHECKSUMS:
   RESideMenu: f24c508404b49c667344c54aba7e590883533958
   SnapKit: bbad04cb016c7cead63965f16b00c09318d271ee
-  SwiftHSVColorPicker: 0b06e8c598cd5a59ac5a5c0fc8417908703846b2
 
-PODFILE CHECKSUM: a2722fb490900584bcc602bf23a30841bddee5b8
+PODFILE CHECKSUM: b4a9b8c8526ca7e5546ce426cf28fc1f397084bb
 
 COCOAPODS: 1.0.1

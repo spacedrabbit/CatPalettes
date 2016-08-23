@@ -8,12 +8,10 @@
 
 import UIKit
 import SnapKit
-import SwiftHSVColorPicker
 
-class PaletteSelectionViewController: UIViewController {
+class PaletteSelectionViewController: UIViewController, SwiftHSVColorPickerDelegate {
   
   internal var colorPicker: SwiftHSVColorPicker!
-  
   
   // ---------------------------------------------------------------- //
   // MARK: - View Lifecycle
@@ -26,8 +24,9 @@ class PaletteSelectionViewController: UIViewController {
       width: self.view.frame.size.width,
       height: self.view.frame.size.height * 0.5))
     
+    self.colorPicker.delegate = self
     self.colorPicker.setViewColor(AppColors.LightGeoBackgroundTheme)
-    self.updateLabelsFor(AppColors.LightGeoBackgroundTheme)
+    self.updateLabelsFor(self.colorPicker.color)
     
     self.setupViewHierarchy()
     self.configureConstraints()
@@ -72,11 +71,18 @@ class PaletteSelectionViewController: UIViewController {
   
   // ---------------------------------------------------------------- //
   // MARK: - UI Updates 
-  internal func updateLabelsFor(color: UIColor) {
+  private func updateLabelsFor(color: UIColor) {
     let rgbComponents = rgbComponentsFrom(color)
     let hexString = hexValueFrom(color)
-    self.currentColorDetailsRGBLabel.text = "R: \(rgbComponents.r), G: \(rgbComponents.g), B: \(rgbComponents.b)"
-    self.currentColorDetailsHexLabel.text = hexString
+    self.currentColorDetailsRGBLabel.text = "R: \(Double(rgbComponents.r).roundToPlaces(1)), G: \(Double(rgbComponents.g).roundToPlaces(1)), B: \(Double(rgbComponents.b).roundToPlaces(1))"
+    self.currentColorDetailsHexLabel.text = "#" + hexString
+  }
+  
+  
+  // ---------------------------------------------------------------- //
+  // MARK: - Color Picking Delegate
+  internal func didSelectColor(color: UIColor) {
+    self.updateLabelsFor(color)
   }
   
   

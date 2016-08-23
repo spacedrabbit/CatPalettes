@@ -6,6 +6,6 @@ target 'CatPColoralettes' do
 
 	pod 'SnapKit' , '~> 0.21.0'
 	pod 'RESideMenu', '~> 4.0.7'
-	pod 'SwiftHSVColorPicker', '~> 1.0.9'
+	# pod 'SwiftHSVColorPicker', '~> 1.0.9'
 
 end

@@ -19,6 +19,11 @@
 		1466AE151D67FD4C006D072E /* ColorPalette.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1466AE141D67FD4C006D072E /* ColorPalette.swift */; };
 		1466AE171D67FEDE006D072E /* ExpansionGroupManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1466AE161D67FEDE006D072E /* ExpansionGroupManager.swift */; };
 		14B4E6101D6CDF1200EADED7 /* PaletteSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B4E60F1D6CDF1200EADED7 /* PaletteSelectionViewController.swift */; };
+		14B4E6171D6CFC5D00EADED7 /* BrightnessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B4E6121D6CFC5D00EADED7 /* BrightnessView.swift */; };
+		14B4E6181D6CFC5D00EADED7 /* ColorUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B4E6131D6CFC5D00EADED7 /* ColorUtils.swift */; };
+		14B4E6191D6CFC5D00EADED7 /* ColorWheel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B4E6141D6CFC5D00EADED7 /* ColorWheel.swift */; };
+		14B4E61A1D6CFC5D00EADED7 /* SelectedColorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B4E6151D6CFC5D00EADED7 /* SelectedColorView.swift */; };
+		14B4E61B1D6CFC5D00EADED7 /* SwiftHSVColorPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B4E6161D6CFC5D00EADED7 /* SwiftHSVColorPicker.swift */; };
 		14C491141D660F1A00390756 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C491131D660F1A00390756 /* AppDelegate.swift */; };
 		14C491161D660F1A00390756 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C491151D660F1A00390756 /* ViewController.swift */; };
 		14C491191D660F1A00390756 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14C491171D660F1A00390756 /* Main.storyboard */; };
@@ -43,6 +48,11 @@
 		1466AE141D67FD4C006D072E /* ColorPalette.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorPalette.swift; sourceTree = "<group>"; };
 		1466AE161D67FEDE006D072E /* ExpansionGroupManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExpansionGroupManager.swift; sourceTree = "<group>"; };
 		14B4E60F1D6CDF1200EADED7 /* PaletteSelectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaletteSelectionViewController.swift; sourceTree = "<group>"; };
+		14B4E6121D6CFC5D00EADED7 /* BrightnessView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrightnessView.swift; sourceTree = "<group>"; };
+		14B4E6131D6CFC5D00EADED7 /* ColorUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorUtils.swift; sourceTree = "<group>"; };
+		14B4E6141D6CFC5D00EADED7 /* ColorWheel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorWheel.swift; sourceTree = "<group>"; };
+		14B4E6151D6CFC5D00EADED7 /* SelectedColorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectedColorView.swift; sourceTree = "<group>"; };
+		14B4E6161D6CFC5D00EADED7 /* SwiftHSVColorPicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftHSVColorPicker.swift; sourceTree = "<group>"; };
 		14C491101D660F1A00390756 /* CatPColoralettes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CatPColoralettes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		14C491131D660F1A00390756 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		14C491151D660F1A00390756 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -120,6 +130,19 @@
 			name = Views;
 			sourceTree = "<group>";
 		};
+		14B4E6111D6CFC5D00EADED7 /* HSVColorPicker */ = {
+			isa = PBXGroup;
+			children = (
+				14B4E6121D6CFC5D00EADED7 /* BrightnessView.swift */,
+				14B4E6131D6CFC5D00EADED7 /* ColorUtils.swift */,
+				14B4E6141D6CFC5D00EADED7 /* ColorWheel.swift */,
+				14B4E6151D6CFC5D00EADED7 /* SelectedColorView.swift */,
+				14B4E6161D6CFC5D00EADED7 /* SwiftHSVColorPicker.swift */,
+			);
+			name = HSVColorPicker;
+			path = Source;
+			sourceTree = "<group>";
+		};
 		14C491071D660F1A00390756 = {
 			isa = PBXGroup;
 			children = (
@@ -153,6 +176,7 @@
 		14C491251D66108C00390756 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				14B4E6111D6CFC5D00EADED7 /* HSVColorPicker */,
 				14C491131D660F1A00390756 /* AppDelegate.swift */,
 				14C491151D660F1A00390756 /* ViewController.swift */,
 				14C491281D66156F00390756 /* ExpandingTableViewCell.swift */,
@@ -307,15 +331,20 @@
 			files = (
 				1441546F1D6BBD9900BA03D0 /* MenuManager.swift in Sources */,
 				144334C51D690B6700E2F511 /* FloatingAddButton.swift in Sources */,
+				14B4E6181D6CFC5D00EADED7 /* ColorUtils.swift in Sources */,
+				14B4E61B1D6CFC5D00EADED7 /* SwiftHSVColorPicker.swift in Sources */,
 				1466AE131D67F706006D072E /* SimpleExpandingCell.swift in Sources */,
+				14B4E6171D6CFC5D00EADED7 /* BrightnessView.swift in Sources */,
 				14C491291D66156F00390756 /* ExpandingTableViewCell.swift in Sources */,
 				1466AE111D67F39F006D072E /* Helpers.swift in Sources */,
 				1466AE151D67FD4C006D072E /* ColorPalette.swift in Sources */,
 				14C491271D6610CC00390756 /* PaletteViewController.swift in Sources */,
 				144334C01D690ABC00E2F511 /* SimpleHeaderView.swift in Sources */,
 				1441546C1D6B99AE00BA03D0 /* MenuViewController.swift in Sources */,
+				14B4E6191D6CFC5D00EADED7 /* ColorWheel.swift in Sources */,
 				14C491161D660F1A00390756 /* ViewController.swift in Sources */,
 				14D3BE241D6A2EAD0024A9D8 /* SimpleTableTitleView.swift in Sources */,
+				14B4E61A1D6CFC5D00EADED7 /* SelectedColorView.swift in Sources */,
 				14B4E6101D6CDF1200EADED7 /* PaletteSelectionViewController.swift in Sources */,
 				1466AE0F1D661EA2006D072E /* ExpandingView.swift in Sources */,
 				1466AE171D67FEDE006D072E /* ExpansionGroupManager.swift in Sources */,
