@@ -14,16 +14,34 @@ internal class MenuManager: NSObject, RESideMenuDelegate {
   internal private (set) var managedMenu: RESideMenu!
   internal static var shared: MenuManager = MenuManager()
   
+  internal static var contentViewController = MenuManager.shared.managedMenu.contentViewController
+  
+  private var previousViewController: UIViewController?
+  
   private override init() {}
   private convenience init(withSideMenu menu: RESideMenu) {
     self.init()
     self.managedMenu = menu
     self.managedMenu.delegate = self
+    self.managedMenu.menuPreferredStatusBarStyle = .LightContent
   }
   
   internal class func initialize(withMenu menu: RESideMenu) {
     MenuManager.shared = MenuManager(withSideMenu: menu)
   }
+  
+  
+  // ---------------------------------------------------------------- //
+  // MARK: - Helpers 
+  internal func previousViewController<T: UIViewController>(wasType type: T) -> Bool {
+    if let previousVC = self.previousViewController {
+      if previousVC.self is T {
+        return true
+      }
+    }
+    return false
+  }
+  
   
   // ---------------------------------------------------------------- //
   // MARK: - RESideMenu Delegate
@@ -43,7 +61,7 @@ internal class MenuManager: NSObject, RESideMenuDelegate {
   func sideMenu(sideMenu: RESideMenu!, didShowMenuViewController menuViewController: UIViewController!) {
     if menuViewController == sideMenu.leftMenuViewController {
       if let menuScreen: MenuViewController = menuViewController as? MenuViewController {
-        print("access grante")
+        print("access granted to \(menuScreen)")
       }
     }
 
@@ -54,7 +72,7 @@ internal class MenuManager: NSObject, RESideMenuDelegate {
   }
   
   func sideMenu(sideMenu: RESideMenu!, willShowMenuViewController menuViewController: UIViewController!) {
-    
+    self.previousViewController = sideMenu.contentViewController
   }
   
 }

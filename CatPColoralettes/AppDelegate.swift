@@ -28,12 +28,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // TODO: disable right menu, or just make it the same instance of the left controller
     // TODO: update background on menu
     // TODO: test with background image and adjust parallax settings
+    let menu: MenuViewController = MenuViewController()
     let slidingNavigationMenu: RESideMenu = RESideMenu(contentViewController: navigationController,
-                                                       leftMenuViewController: MenuViewController(),
+                                                       leftMenuViewController: menu,
                                                        rightMenuViewController: ViewController())
     slidingNavigationMenu.bouncesHorizontally = false
     slidingNavigationMenu.animationDuration = 0.25
     slidingNavigationMenu.backgroundImage = UIImage(named: "geo_background")
+    slidingNavigationMenu.menuPreferredStatusBarStyle = .LightContent
     
     MenuManager.initialize(withMenu: slidingNavigationMenu)
     

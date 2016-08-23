@@ -14,7 +14,7 @@ class MenuViewController: UIViewController {
   private static let LeftMargin: CGFloat = 24.0
   private static let VerticalMargin: CGFloat = 16.0
   private static let TopOffsetMultiplier: CGFloat = 0.25
-  
+
   // ---------------------------------------------------------------- //
   // MARK: - View Lifecycle
   override func viewDidLoad() {
@@ -22,6 +22,7 @@ class MenuViewController: UIViewController {
     
     self.setupViewHierarchy()
     self.configureConstraints()
+    self.addButtonBehaviours()
   }
   
   override func didReceiveMemoryWarning() {
@@ -69,6 +70,32 @@ class MenuViewController: UIViewController {
     self.containerView.addSubview(profileButton)
   }
   
+  internal func addButtonBehaviours() {
+    self.palettesButton.addTarget(self, action: #selector(MenuViewController.presentPalleteViewController), forControlEvents: .TouchUpInside)
+    self.gradientsButton.addTarget(self, action: #selector(MenuViewController.presentGradientViewController), forControlEvents: .TouchUpInside)
+  }
+  
+  
+  // ---------------------------------------------------------------- //
+  // MARK: - Actions
+  internal func presentPalleteViewController() {
+    MenuManager.shared.managedMenu.hideMenuViewController()
+  }
+  
+  internal func presentGradientViewController() {
+    if MenuManager.shared.managedMenu.contentViewController is UINavigationController {
+      let topVC: UIViewController = MenuManager.contentViewController
+      if topVC is UINavigationController {
+        if let paletteVC = (topVC as! UINavigationController).topViewController as? PaletteViewController {
+          MenuManager.shared.managedMenu.hideMenuViewController()
+          (topVC as! UINavigationController).pushViewController(ViewController(), animated: true)
+          // TODO: entire VC stack at this point should only be the new one that has been pushed
+        }
+      }
+    }
+  }
+  
+  // MARK: - Other
   override func preferredStatusBarStyle() -> UIStatusBarStyle {
     return UIStatusBarStyle.LightContent
   }

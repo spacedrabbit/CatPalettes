@@ -74,6 +74,16 @@
 			name = Common;
 			sourceTree = "<group>";
 		};
+		144154701D6BED9D00BA03D0 /* Table Related */ = {
+			isa = PBXGroup;
+			children = (
+				144334BF1D690ABC00E2F511 /* SimpleHeaderView.swift */,
+				1466AE121D67F706006D072E /* SimpleExpandingCell.swift */,
+				14D3BE231D6A2EAD0024A9D8 /* SimpleTableTitleView.swift */,
+			);
+			name = "Table Related";
+			sourceTree = "<group>";
+		};
 		144334C11D690AEF00E2F511 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -94,11 +104,9 @@
 		144334C31D690AFF00E2F511 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				144334BF1D690ABC00E2F511 /* SimpleHeaderView.swift */,
-				1466AE121D67F706006D072E /* SimpleExpandingCell.swift */,
+				144154701D6BED9D00BA03D0 /* Table Related */,
 				1466AE0E1D661EA2006D072E /* ExpandingView.swift */,
 				144334C41D690B6700E2F511 /* FloatingAddButton.swift */,
-				14D3BE231D6A2EAD0024A9D8 /* SimpleTableTitleView.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
