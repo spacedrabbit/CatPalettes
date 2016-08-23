@@ -15,6 +15,7 @@ internal class MenuManager: NSObject, RESideMenuDelegate {
   internal static var shared: MenuManager = MenuManager()
   
   internal static var contentViewController = MenuManager.shared.managedMenu.contentViewController
+  internal static var leftViewController = MenuManager.shared.managedMenu.leftMenuViewController
   
   private var previousViewController: UIViewController?
   

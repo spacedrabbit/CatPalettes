@@ -79,20 +79,26 @@ class MenuViewController: UIViewController {
   // ---------------------------------------------------------------- //
   // MARK: - Actions
   internal func presentPalleteViewController() {
-    MenuManager.shared.managedMenu.hideMenuViewController()
+    if let navVC: UINavigationController = MenuManager.contentViewController as? UINavigationController {
+      if let gradientVC: ViewController = navVC.topViewController as? ViewController {
+        let paletteVC = PaletteViewController()
+        navVC.pushViewController(paletteVC, animated: true)
+        navVC.viewControllers = [paletteVC]
+        MenuManager.shared.managedMenu.hideMenuViewController()
+      }
+    }
   }
   
   internal func presentGradientViewController() {
-    if MenuManager.shared.managedMenu.contentViewController is UINavigationController {
-      let topVC: UIViewController = MenuManager.contentViewController
-      if topVC is UINavigationController {
-        if let paletteVC = (topVC as! UINavigationController).topViewController as? PaletteViewController {
-          MenuManager.shared.managedMenu.hideMenuViewController()
-          (topVC as! UINavigationController).pushViewController(ViewController(), animated: true)
-          // TODO: entire VC stack at this point should only be the new one that has been pushed
-        }
+    if let navVC: UINavigationController = MenuManager.contentViewController as? UINavigationController {
+      if let paletteVC: PaletteViewController = navVC.topViewController as? PaletteViewController {
+        let gradientVC = ViewController()
+        navVC.pushViewController(gradientVC, animated: true)
+        navVC.viewControllers = [gradientVC]
+        MenuManager.shared.managedMenu.hideMenuViewController()
       }
     }
+
   }
   
   // MARK: - Other
