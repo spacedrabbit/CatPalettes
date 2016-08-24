@@ -73,12 +73,16 @@ class MenuViewController: UIViewController {
   internal func addButtonBehaviours() {
     self.palettesButton.addTarget(self, action: #selector(MenuViewController.menuSelectionMade(_:)), forControlEvents: .TouchUpInside)
     self.gradientsButton.addTarget(self, action: #selector(MenuViewController.menuSelectionMade(_:)), forControlEvents: .TouchUpInside)
+    self.settingsButton.addTarget(self, action: #selector(MenuViewController.menuSelectionMade(_:)), forControlEvents: .TouchUpInside)
+    self.profileButton.addTarget(self, action: #selector(MenuViewController.menuSelectionMade(_:)), forControlEvents: .TouchUpInside)
   }
   
+  
+  // ---------------------------------------------------------------- //
+  // MARK: - Routing
   private func route(forSelectedButton button: UIButton) -> BasePaletteViewController {
     
     var returnedVC = BasePaletteViewController()
-    
     switch button.tag {
     case AppMenuButton.Palette.rawValue:
       print("palette selected")
@@ -86,7 +90,6 @@ class MenuViewController: UIViewController {
       
     case AppMenuButton.Gradient.rawValue:
       print("gradient selected")
-      returnedVC = PaletteSelectionViewController()
       
     case AppMenuButton.Profile.rawValue:
       print("profile tapped")
@@ -100,6 +103,7 @@ class MenuViewController: UIViewController {
     
     return returnedVC
   }
+  
   
   // ---------------------------------------------------------------- //
   // MARK: - Actions
@@ -128,11 +132,13 @@ class MenuViewController: UIViewController {
   }
   
 
+  // ---------------------------------------------------------------- //
   // MARK: - Other
   override func preferredStatusBarStyle() -> UIStatusBarStyle {
     return UIStatusBarStyle.LightContent
   }
 
+  
   // ---------------------------------------------------------------- //
   // MARK: - Lazy Instances
   internal lazy var containerView: UIView = UIView()

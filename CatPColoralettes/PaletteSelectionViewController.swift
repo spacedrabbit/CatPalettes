@@ -9,9 +9,23 @@
 import UIKit
 import SnapKit
 
-class PaletteSelectionViewController: BasePaletteViewController, SwiftHSVColorPickerDelegate {
+class PaletteSelectionViewController: UIViewController, SwiftHSVColorPickerDelegate {
   
   internal var colorPicker: SwiftHSVColorPicker!
+  internal var colorPalette: ColorPalette?
+  
+  convenience init(withColorPalette palette: ColorPalette) {
+    self.init()
+    self.colorPalette = palette
+  }
+  
+  init() {
+    super.init(nibName: nil, bundle: nil)
+  }
+  
+  required init?(coder aDecoder: NSCoder) {
+    fatalError("init(coder:) has not been implemented")
+  }
   
   // ---------------------------------------------------------------- //
   // MARK: - View Lifecycle
@@ -25,7 +39,14 @@ class PaletteSelectionViewController: BasePaletteViewController, SwiftHSVColorPi
       height: self.view.frame.size.height * 0.5))
     
     self.colorPicker.delegate = self
-    self.colorPicker.setViewColor(AppColors.LightGeoBackgroundTheme)
+    
+    if let paletteFirstColor: UIColor = self.colorPalette?.paletteColors.first {
+      self.colorPicker.setViewColor(paletteFirstColor)
+      self.expandingView = ExpandingView(withColors: self.colorPalette!.paletteColors)
+    }
+    else {
+      self.colorPicker.setViewColor(AppColors.LightGeoBackgroundTheme)
+    }
     self.updateLabelsFor(self.colorPicker.color)
     
     self.setupViewHierarchy()
@@ -36,10 +57,7 @@ class PaletteSelectionViewController: BasePaletteViewController, SwiftHSVColorPi
   override func didReceiveMemoryWarning() {
     super.didReceiveMemoryWarning()
   }
-  
-  override func paletteButtonTapped() {
-    self.showMenu(nil)
-  }
+
   
   // ---------------------------------------------------------------- //
   // MARK: - Setup

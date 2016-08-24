@@ -150,9 +150,12 @@ internal class PaletteViewController: BasePaletteViewController, UITableViewDele
   // ---------------------------------------------------------------- //
   // MARK: - UITableViewDelegate
   internal func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    // TODO: there is a leak here, every subsequent call adds ~1MiB at the moment. Something related to CFData but likely its with the pod
+    //    selectedCell.simulateTap()
     let selectedCell: SimpleExpandingCell = tableView.cellForRowAtIndexPath(indexPath) as! SimpleExpandingCell
-    selectedCell.simulateTap()
-    self.tableView.reloadData()
+    let destinationVC: PaletteSelectionViewController = PaletteSelectionViewController(withColorPalette: selectedCell.palette)
+    self.navigationController?.pushViewController(destinationVC, animated: true)
+//    self.tableView.reloadData()
   }
   
   
@@ -199,10 +202,7 @@ internal class PaletteViewController: BasePaletteViewController, UITableViewDele
   
   // ---------------------------------------------------------------- //
   // MARK: - Actions
-//  internal func showMenu(sender: AnyObject?) {
-//    self.navigationController?.presentLeftMenuViewController(self)
-//  }
-//  
+
   
   // ---------------------------------------------------------------- //
   // MARK: - Other

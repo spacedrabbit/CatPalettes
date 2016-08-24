@@ -12,13 +12,15 @@ import SnapKit
 
 internal class SimpleExpandingCell: UITableViewCell {
   internal static let cellIdentifier: String = "SimpleExpandingCellIdentifier"
-  internal private (set) var expansionView: ExpandingView!// = ExpandingView()
+  internal private (set) var expansionView: ExpandingView!
+  internal var palette: ColorPalette!
   
   
   // MARK: - Initialization
   convenience init(style: UITableViewCellStyle, reuseIdentifier: String?, palette: ColorPalette) {
     self.init(style: style, reuseIdentifier: reuseIdentifier)
     self.expansionView = ExpandingView(withColors: palette.paletteColors)
+    self.palette = palette
     
     self.setupViewHierarchy()
     self.configureConstraints()

@@ -7,7 +7,7 @@
 
 import UIKit
 
-internal protocol SwiftHSVColorPickerDelegate {
+internal protocol SwiftHSVColorPickerDelegate: class {
   func didSelectColor(color: UIColor)
 }
 
@@ -15,7 +15,7 @@ public class SwiftHSVColorPicker: UIView {
   var colorWheel: ColorWheel!
   var brightnessView: BrightnessView!
   var selectedColorView: SelectedColorView!
-  var delegate: SwiftHSVColorPickerDelegate?
+  weak var delegate: SwiftHSVColorPickerDelegate?
   
   public var color: UIColor!
   var hue: CGFloat = 1.0
