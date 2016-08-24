@@ -27,7 +27,7 @@ class ColorWheel: UIView {
     // Retina scaling factor
     let scale: CGFloat = UIScreen.mainScreen().scale
     
-    var delegate: SwiftHSVColorPicker?
+    weak var delegate: SwiftHSVColorPicker?
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder);
