@@ -24,6 +24,7 @@ internal struct AppFonts {
   internal static let Header: UIFont = UIFont.systemFontOfSize(24.0)
   internal static let SectionTitle: UIFont = UIFont.systemFontOfSize(20.0, weight: UIFontWeightMedium)
   internal static let MenuButtonText: UIFont = UIFont.systemFontOfSize(24.0, weight:  UIFontWeightMedium)
+  internal static let SingleColorEditingText: UIFont = UIFont.systemFontOfSize(14.0, weight: UIFontWeightBold)
 }
 
 internal struct AppStrings {

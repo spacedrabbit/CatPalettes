@@ -15,16 +15,6 @@ class ViewController: BasePaletteViewController {
     super.viewDidLoad()
     self.view.backgroundColor = UIColor.redColor()
     
-//    let expanding: ExpandingView = ExpandingView()
-//    expanding.backgroundColor = UIColor.blueColor()
-//    self.view.addSubview(expanding)
-//    
-//    expanding.snp_makeConstraints { (make) in
-//      make.left.right.equalTo(self.view)
-//      make.top.equalTo(100.0)
-//      make.height.greaterThanOrEqualTo(20.0)
-//    }
-    
     let testView: SingleColorEditView = SingleColorEditView(withColor: nil)
     self.view.addSubview(testView)
     
@@ -42,9 +32,12 @@ class ViewController: BasePaletteViewController {
       make.top.equalTo(testView.snp_bottom).offset(16.0)
       make.height.lessThanOrEqualTo(100.0)
     }
-    
   }
 
+  override func paletteButtonTapped() {
+    self.showMenu(nil)
+  }
+  
   override func didReceiveMemoryWarning() {
     super.didReceiveMemoryWarning()
     // Dispose of any resources that can be recreated.

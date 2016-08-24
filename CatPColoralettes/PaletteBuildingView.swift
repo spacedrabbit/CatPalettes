@@ -165,8 +165,9 @@ internal class SingleColorEditView: UIView, FloatingButtonDelegate {
   internal lazy var buttonContainer: UIView = UIView()
   internal lazy var instructionsLabel: UILabel = {
     let label: UILabel = UILabel()
+    label.text = "Tap Add".capitalizedString
     label.textColor = AppColors.DefaultTitleText
-    label.font = AppFonts.SectionTitle
+    label.font = AppFonts.SingleColorEditingText
     label.numberOfLines = 1
     label.adjustsFontSizeToFitWidth = true
     return label
