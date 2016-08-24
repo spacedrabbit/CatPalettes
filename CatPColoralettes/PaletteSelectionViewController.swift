@@ -34,7 +34,7 @@ class PaletteSelectionViewController: UIViewController, SwiftHSVColorPickerDeleg
     
     // does not play well with autolayout, must manually create frame
     self.colorPicker = SwiftHSVColorPicker(frame: CGRect(x: 0.0,
-      y: 0.0,
+      y: 16.0,
       width: self.view.frame.size.width,
       height: self.view.frame.size.height * 0.5))
     
@@ -43,9 +43,12 @@ class PaletteSelectionViewController: UIViewController, SwiftHSVColorPickerDeleg
     if let paletteFirstColor: UIColor = self.colorPalette?.paletteColors.first {
       self.colorPicker.setViewColor(paletteFirstColor)
       self.expandingView = ExpandingView(withColors: self.colorPalette!.paletteColors)
+      self.title = self.colorPalette?.paletteName
     }
     else {
-      self.colorPicker.setViewColor(AppColors.LightGeoBackgroundTheme)
+      self.colorPicker.setViewColor(UIColor.whiteColor())
+      self.title = "New Palette..."
+      self.navigationController?.navigationItem.backBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Cancel, target: self, action: #selector(PaletteSelectionViewController.dismiss)) // TODO: not working/showing up
     }
     self.updateLabelsFor(self.colorPicker.color)
     
@@ -100,6 +103,11 @@ class PaletteSelectionViewController: UIViewController, SwiftHSVColorPickerDeleg
   }
   
   
+  internal func dismiss() {
+    self.navigationController?.popViewControllerAnimated(true)
+  }
+  
+  
   // ---------------------------------------------------------------- //
   // MARK: - Color Picking Delegate
   internal func didSelectColor(color: UIColor) {
@@ -110,7 +118,7 @@ class PaletteSelectionViewController: UIViewController, SwiftHSVColorPickerDeleg
   // ---------------------------------------------------------------- //
   // MARK: - Lazy Instances
   internal lazy var expandingView: ExpandingView = {
-    let view: ExpandingView = ExpandingView(withColors: [UIColor.redColor(), UIColor.blueColor()])
+    let view: ExpandingView = ExpandingView(withColors: [])
     return view
   }()
   

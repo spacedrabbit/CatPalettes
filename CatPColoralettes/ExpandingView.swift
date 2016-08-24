@@ -16,22 +16,6 @@ class ExpandingView: UIView {
   internal static let ColorViewHeight: CGFloat = 36.0
   internal static let OptionsViewHeight: CGFloat = 24.0
 
-  internal var colorViews: [UIView] = []
-  internal lazy var stackView: UIStackView = {
-    let stack: UIStackView = UIStackView()
-    stack.alignment = .Fill
-    stack.distribution = .FillEqually
-    stack.axis = .Vertical
-    return stack
-  }()
-  internal var optionsView: UIView = UIView()
-  internal var containerView: UIView = {
-    let view: UIView = UIView()
-    view.clipsToBounds = true
-    view.layer.cornerRadius = 15.0
-    return view
-  }()
-  internal var overlayView: UIView = UIView()
   
   private var tapRecognizer: UITapGestureRecognizer!
   private var optionsViewTopConstrain: Constraint?
@@ -125,4 +109,26 @@ class ExpandingView: UIView {
   internal func didTapView(sender: AnyObject?) {
     // not being utilized at the moment, cell directly is calling toggle cell expansion on tap
   }
+  
+  // MARK: - Lazy Instances
+  
+  internal lazy var colorViews: [UIView] = []
+  internal lazy var optionsView: UIView = UIView()
+  internal lazy var overlayView: UIView = UIView()
+  
+  internal lazy var stackView: UIStackView = {
+    let stack: UIStackView = UIStackView()
+    stack.alignment = .Fill
+    stack.distribution = .FillEqually
+    stack.axis = .Vertical
+    return stack
+  }()
+  
+  internal lazy var containerView: UIView = {
+    let view: UIView = UIView()
+    view.clipsToBounds = true
+    view.layer.cornerRadius = 15.0
+    return view
+  }()
+  
 }

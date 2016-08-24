@@ -93,6 +93,7 @@ class MenuViewController: UIViewController {
       
     case AppMenuButton.Profile.rawValue:
       print("profile tapped")
+      returnedVC = ViewController()
       
     case AppMenuButton.Settings.rawValue:
       print("settings tapped")
@@ -175,7 +176,7 @@ class MenuViewController: UIViewController {
     button.setTitle(AppStrings.ProfileTitle, forState: .Normal)
     button.titleLabel?.font = AppFonts.MenuButtonText
     button.titleLabel?.textColor = AppColors.DefaultTitleText
-    button.tag = AppMenuButton.Palette.rawValue
+    button.tag = AppMenuButton.Profile.rawValue
     return button
   }()
 }

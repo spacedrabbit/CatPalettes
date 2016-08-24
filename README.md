@@ -24,6 +24,7 @@
 	- Icons
 		- Palette: [Link - Noun Project](https://thenounproject.com/term/color-swatch/290654/) by [Sergey Demushkin](https://thenounproject.com/mockturtle/)
 		- Plus Icon: [Link - Noun Project](https://thenounproject.com/term/add/25957/) by [Mr. Yunis] (https://thenounproject.com/mr.yunis/)
+		- Minus Icon: [Link - Nount Project](https://thenounproject.com/search/?q=minus&i=18952) by [Icomatic](https://thenounproject.com/Icomatic/)
 
 - Pods
 	- [RESideMenu](https://github.com/romaonthego/RESideMenu) by [Roman Efimov](https://twitter.com/romaonthego)

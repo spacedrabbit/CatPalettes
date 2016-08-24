@@ -9,20 +9,38 @@
 import UIKit
 import SnapKit
 
-class ViewController: UIViewController {
+class ViewController: BasePaletteViewController {
 
   override func viewDidLoad() {
     super.viewDidLoad()
     self.view.backgroundColor = UIColor.redColor()
     
-    let expanding: ExpandingView = ExpandingView()
-    expanding.backgroundColor = UIColor.blueColor()
-    self.view.addSubview(expanding)
+//    let expanding: ExpandingView = ExpandingView()
+//    expanding.backgroundColor = UIColor.blueColor()
+//    self.view.addSubview(expanding)
+//    
+//    expanding.snp_makeConstraints { (make) in
+//      make.left.right.equalTo(self.view)
+//      make.top.equalTo(100.0)
+//      make.height.greaterThanOrEqualTo(20.0)
+//    }
     
-    expanding.snp_makeConstraints { (make) in
+    let testView: SingleColorEditView = SingleColorEditView(withColor: nil)
+    self.view.addSubview(testView)
+    
+    testView.snp_makeConstraints { (make) in
       make.left.right.equalTo(self.view)
       make.top.equalTo(100.0)
-      make.height.greaterThanOrEqualTo(20.0)
+      make.height.lessThanOrEqualTo(100.0)
+    }
+    
+    let secondTestView: SingleColorEditView = SingleColorEditView(withColor: UIColor.blueColor())
+    self.view.addSubview(secondTestView)
+    
+    secondTestView.snp_makeConstraints { (make) in
+      make.left.right.equalTo(self.view)
+      make.top.equalTo(testView.snp_bottom).offset(16.0)
+      make.height.lessThanOrEqualTo(100.0)
     }
     
   }

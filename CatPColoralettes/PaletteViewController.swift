@@ -19,12 +19,12 @@ internal class PaletteViewController: BasePaletteViewController, UITableViewDele
   // Internal
   internal var paletteManager: ExpandingViewGroupManager!
   internal var debugPaletteManager: ExpandingViewGroupManager!
-  internal var floatingPlusButton: FloatingButton = FloatingButton()
+  internal var floatingPlusButton: FloatingButton = FloatingButton(withAction: .Plus)
   
   // Private
   private var floatingPlusButtonBottomConstraint: Constraint?
-  private let visibleButtonOffset: CGFloat = -(40.0 + FloatingButton.CornerRadius)
-  private let hiddenButtonOffset: CGFloat = 40.0 + FloatingButton.CornerRadius
+  private let visibleButtonOffset: CGFloat = -(40.0 + (FloatingButton.LargeButtonSize * 0.5))
+  private let hiddenButtonOffset: CGFloat = 40.0 + (FloatingButton.LargeButtonSize * 0.5)
   private var offsetAtStartOfScroll: CGFloat = 0.0
   private var offsetAtEndOfScroll: CGFloat = 0.0
   
@@ -194,9 +194,9 @@ internal class PaletteViewController: BasePaletteViewController, UITableViewDele
   
   // ---------------------------------------------------------------- //
   // MARK: - Floating Button Delegate
-  internal func didTapFloatingButton() {
-   print("delegate alerted")
-    // TODO: transition to next VC
+  internal func didTapFloatingButton(withAction action: FloatingButtonAction) {
+   let dtvc = PaletteSelectionViewController()
+    self.navigationController?.pushViewController(dtvc, animated: true)
   }
   
   

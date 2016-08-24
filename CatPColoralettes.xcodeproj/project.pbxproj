@@ -10,8 +10,9 @@
 		1441546C1D6B99AE00BA03D0 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1441546B1D6B99AE00BA03D0 /* MenuViewController.swift */; };
 		1441546F1D6BBD9900BA03D0 /* MenuManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1441546E1D6BBD9900BA03D0 /* MenuManager.swift */; };
 		144334C01D690ABC00E2F511 /* SimpleHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144334BF1D690ABC00E2F511 /* SimpleHeaderView.swift */; };
-		144334C51D690B6700E2F511 /* FloatingAddButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144334C41D690B6700E2F511 /* FloatingAddButton.swift */; };
+		144334C51D690B6700E2F511 /* FloatingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144334C41D690B6700E2F511 /* FloatingButton.swift */; };
 		144B3C4A1D6D0319006B4597 /* BasePaletteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144B3C491D6D0319006B4597 /* BasePaletteViewController.swift */; };
+		144B3C4D1D6E387B006B4597 /* PaletteBuildingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144B3C4C1D6E387B006B4597 /* PaletteBuildingView.swift */; };
 		1453BE781D6CDCCB009B88B2 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1453BE771D6CDCCB009B88B2 /* Accelerate.framework */; };
 		1453BE7A1D6CDCD3009B88B2 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1453BE791D6CDCD3009B88B2 /* QuartzCore.framework */; };
 		1466AE0F1D661EA2006D072E /* ExpandingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1466AE0E1D661EA2006D072E /* ExpandingView.swift */; };
@@ -40,8 +41,9 @@
 		1441546B1D6B99AE00BA03D0 /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		1441546E1D6BBD9900BA03D0 /* MenuManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MenuManager.swift; path = Common/MenuManager.swift; sourceTree = "<group>"; };
 		144334BF1D690ABC00E2F511 /* SimpleHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimpleHeaderView.swift; sourceTree = "<group>"; };
-		144334C41D690B6700E2F511 /* FloatingAddButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FloatingAddButton.swift; sourceTree = "<group>"; };
+		144334C41D690B6700E2F511 /* FloatingButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FloatingButton.swift; sourceTree = "<group>"; };
 		144B3C491D6D0319006B4597 /* BasePaletteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasePaletteViewController.swift; sourceTree = "<group>"; };
+		144B3C4C1D6E387B006B4597 /* PaletteBuildingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaletteBuildingView.swift; sourceTree = "<group>"; };
 		1453BE771D6CDCCB009B88B2 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
 		1453BE791D6CDCD3009B88B2 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		1466AE0E1D661EA2006D072E /* ExpandingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExpandingView.swift; sourceTree = "<group>"; };
@@ -128,7 +130,8 @@
 			children = (
 				144154701D6BED9D00BA03D0 /* Table Related */,
 				1466AE0E1D661EA2006D072E /* ExpandingView.swift */,
-				144334C41D690B6700E2F511 /* FloatingAddButton.swift */,
+				144334C41D690B6700E2F511 /* FloatingButton.swift */,
+				144B3C4C1D6E387B006B4597 /* PaletteBuildingView.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -341,7 +344,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1441546F1D6BBD9900BA03D0 /* MenuManager.swift in Sources */,
-				144334C51D690B6700E2F511 /* FloatingAddButton.swift in Sources */,
+				144334C51D690B6700E2F511 /* FloatingButton.swift in Sources */,
 				14B4E6181D6CFC5D00EADED7 /* ColorUtils.swift in Sources */,
 				14B4E61B1D6CFC5D00EADED7 /* SwiftHSVColorPicker.swift in Sources */,
 				1466AE131D67F706006D072E /* SimpleExpandingCell.swift in Sources */,
@@ -358,6 +361,7 @@
 				14D3BE241D6A2EAD0024A9D8 /* SimpleTableTitleView.swift in Sources */,
 				14B4E61A1D6CFC5D00EADED7 /* SelectedColorView.swift in Sources */,
 				14B4E6101D6CDF1200EADED7 /* PaletteSelectionViewController.swift in Sources */,
+				144B3C4D1D6E387B006B4597 /* PaletteBuildingView.swift in Sources */,
 				1466AE0F1D661EA2006D072E /* ExpandingView.swift in Sources */,
 				1466AE171D67FEDE006D072E /* ExpansionGroupManager.swift in Sources */,
 				14C491141D660F1A00390756 /* AppDelegate.swift in Sources */,

@@ -1,5 +1,5 @@
 //
-//  FloatingAddButton.swift
+//  FloatingButton.swift
 //  CatPColoralettes
 //
 //  Created by Louis Tur on 8/20/16.
@@ -9,25 +9,54 @@
 import Foundation
 import UIKit
 
-protocol FloatingButtonDelegate {
-  func didTapFloatingButton()
+enum FloatingButtonAction {
+  case Plus, Minus
+}
+
+enum FloatingButtonSize {
+  case Large, Small
+}
+
+protocol FloatingButtonDelegate: class {
+  func didTapFloatingButton(withAction action: FloatingButtonAction)
 }
 
 internal class FloatingButton: UIView {
   
-  internal var delegate: FloatingButtonDelegate?
-  internal static let ButtonSize: CGFloat = 48.0
-  internal static var CornerRadius: CGFloat {
-    return FloatingButton.ButtonSize * 0.5
-  }
+  internal weak var delegate: FloatingButtonDelegate?
+  internal var imageInUse: UIImageView?
+  internal var action: FloatingButtonAction?
+  
+  internal static let LargeButtonSize: CGFloat = 48.0
+  internal static let SmallButtonSize: CGFloat = 24.0
+  internal var selectedSize: CGFloat!
   
   
   // MARK: - Init
-  override init(frame: CGRect) {
-    super.init(frame: frame)
+  convenience init(withAction action: FloatingButtonAction, size: FloatingButtonSize = .Large) {
+    self.init(frame: CGRectZero)
+    
+    // not the best of design choice, but easiest to rewrite now and since both imageViews are lazy, shouldn't impact performance
+    switch action {
+    case .Plus:
+      self.imageInUse = self.imagePlusView
+      self.action = action
+    case .Minus:
+      self.imageInUse = self.imageMinusView
+      self.action = action
+    }
+    
+    switch size {
+    case .Large: self.selectedSize = FloatingButton.LargeButtonSize
+    case .Small: self.selectedSize = FloatingButton.SmallButtonSize
+    }
     
     self.setupViewHierarchy()
     self.configureConstraints()
+  }
+  
+  override init(frame: CGRect) {
+    super.init(frame: frame)
   }
   
   required init?(coder aDecoder: NSCoder) { fatalError() }
@@ -36,7 +65,7 @@ internal class FloatingButton: UIView {
   // MARK: - Setup
   private func configureConstraints() {
     self.snp_makeConstraints { (make) in
-      make.size.equalTo(CGSizeMake(FloatingButton.ButtonSize, FloatingButton.ButtonSize))
+      make.size.equalTo(CGSizeMake(self.selectedSize, self.selectedSize))
     }
     
     self.blurryBackgroundView.snp_makeConstraints { (make) in
@@ -47,39 +76,39 @@ internal class FloatingButton: UIView {
       make.edges.equalTo(self)
     }
     
-    self.imageView.snp_makeConstraints { (make) in
+    self.imageInUse!.snp_makeConstraints { (make) in
       make.center.equalTo(self)
-      make.size.equalTo(CGSize(width: FloatingButton.CornerRadius, height: FloatingButton.CornerRadius))
+      make.size.equalTo(CGSize(width: self.selectedSize * 0.5, height: self.selectedSize * 0.5))
     }
   }
   
   private func setupViewHierarchy() {
     self.addSubview(blurryBackgroundView)
     self.addSubview(tappableControl)
-    self.tappableControl.addSubview(imageView)
+    self.tappableControl.addSubview(self.imageInUse!)
     
     self.clipsToBounds = true
-    self.layer.cornerRadius = FloatingButton.CornerRadius
+    self.layer.cornerRadius = self.selectedSize * 0.5
   }
   
   
   // MARK: - Actions
   internal func didTap(sender: AnyObject?) {
-    self.imageView.tintColor = AppColors.DarkGeoBackgroundTheme
+    self.imageInUse?.tintColor = AppColors.DarkGeoBackgroundTheme
 
     UIView.animateWithDuration(0.05) {
       self.layer.setAffineTransform(CGAffineTransformMakeScale(0.9, 0.9))
     }
-    
-    self.delegate?.didTapFloatingButton()
   }
   
   internal func didRelease(sender: AnyObject?) {
-    self.imageView.tintColor = AppColors.DefaultTitleText
+    self.imageInUse?.tintColor = AppColors.DefaultTitleText
     
     UIView.animateWithDuration(0.05) {
       self.layer.setAffineTransform(CGAffineTransformIdentity)
     }
+    
+    self.delegate?.didTapFloatingButton(withAction: self.action!)
   }
   
   
@@ -87,8 +116,15 @@ internal class FloatingButton: UIView {
   // TODO: This will need some style adjustment
   lazy internal var blurryBackgroundView: UIVisualEffectView = UIVisualEffectView(effect: UIBlurEffect(style: .Light))
 
-  lazy internal var imageView: UIImageView = {
+  lazy internal var imagePlusView: UIImageView = {
     let view: UIImageView = UIImageView(image: UIImage(named: "plus")!.imageWithRenderingMode(.AlwaysTemplate))
+    view.tintColor = AppColors.DefaultTitleText
+    view.contentMode = .ScaleAspectFit
+    return view
+  }()
+  
+  lazy internal var imageMinusView: UIImageView = {
+    let view: UIImageView = UIImageView(image: UIImage(named: "minus")!.imageWithRenderingMode(.AlwaysTemplate))
     view.tintColor = AppColors.DefaultTitleText
     view.contentMode = .ScaleAspectFit
     return view
