@@ -34,9 +34,9 @@ internal class MenuManager: NSObject, RESideMenuDelegate {
   
   // ---------------------------------------------------------------- //
   // MARK: - Helpers 
-  internal func previousViewController<T: UIViewController>(wasType type: T) -> Bool {
+  internal func previousViewController<T>(wasType type: T) -> Bool {
     if let previousVC = self.previousViewController {
-      if previousVC.self is T { // TODO: not sure if this is doing what I think it should be, double check docs later
+      if previousVC.dynamicType == type.dynamicType {
         return true
       }
     }

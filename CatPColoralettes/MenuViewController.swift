@@ -103,9 +103,19 @@ class MenuViewController: UIViewController {
   
   // ---------------------------------------------------------------- //
   // MARK: - Actions
+  /**
+    Checks for the sender's tag (will always be a UIButton for now) to determine which selection a user made in the menu.
+    Then verifies that the RESideMenu's contentView is a UINavigationController before proceeding. After the destination 
+    view controller is determined, this is compared against the top view controller of the UINavigationController's stack.
+    If it is the same, the menu simply closes. However, if it is a different VC type then we push the new VC onto the 
+    navigation stack, and make that VC the only member of the stack. 
+   
+    By design, only the topVC should be on the navigation stack when making a selection from the menu.
+   */
   internal func menuSelectionMade(sender: AnyObject?) {
     if let button: UIButton = sender as? UIButton {
       if let navVC: UINavigationController = MenuManager.contentViewController as? UINavigationController {
+        
         let destinationVC = self.route(forSelectedButton: button)
         if !MenuManager.shared.previousViewController(wasType: destinationVC) {
           navVC.pushViewController(destinationVC, animated: true)
@@ -117,31 +127,7 @@ class MenuViewController: UIViewController {
     }
   }
   
-  
-  internal func presentPalleteViewController(sender: AnyObject?) {
-    if let navVC: UINavigationController = MenuManager.contentViewController as? UINavigationController {
-      let destinationVC = PaletteViewController()
-      if !MenuManager.shared.previousViewController(wasType: destinationVC) {
-        navVC.pushViewController(destinationVC, animated: true)
-        navVC.viewControllers = [destinationVC]
-      }
-      
-      MenuManager.shared.managedMenu.hideMenuViewController()
-    }
-  }
-  
-  internal func presentGradientViewController() {
-    if let navVC: UINavigationController = MenuManager.contentViewController as? UINavigationController {
-      let destinationVC = PaletteSelectionViewController()
-      if !MenuManager.shared.previousViewController(wasType: destinationVC) {
-        navVC.pushViewController(destinationVC, animated: true)
-        navVC.viewControllers = [destinationVC]
-      }
-      
-      MenuManager.shared.managedMenu.hideMenuViewController()
-    }
-  }
-  
+
   // MARK: - Other
   override func preferredStatusBarStyle() -> UIStatusBarStyle {
     return UIStatusBarStyle.LightContent
