@@ -13,10 +13,12 @@ class PaletteSelectionViewController: UIViewController, SwiftHSVColorPickerDeleg
   
   internal var colorPicker: SwiftHSVColorPicker!
   internal var colorPalette: ColorPalette?
+  internal var paletteBuildingView: PaletteBuildingView?
   
   convenience init(withColorPalette palette: ColorPalette) {
     self.init()
     self.colorPalette = palette
+    self.paletteBuildingView = PaletteBuildingView(withPaletteColors: self.colorPalette!.paletteColors)
   }
   
   init() {
@@ -75,17 +77,18 @@ class PaletteSelectionViewController: UIViewController, SwiftHSVColorPickerDeleg
       make.top.equalTo(self.currentColorDetailsRGBLabel.snp_bottom).offset(12.0)
       make.centerX.equalTo(self.view)
     }
-    
-    self.expandingView.snp_makeConstraints { (make) in
+
+    self.paletteBuildingView?.snp_makeConstraints(closure: { (make) in
       make.top.equalTo(self.currentColorDetailsHexLabel.snp_bottom).offset(24.0)
-      make.left.right.equalTo(self.view)
-    }
-    
+      make.left.equalTo(self.view).offset(24.0)
+      make.right.equalTo(self.view).inset(24.0)
+      make.bottom.equalTo(self.view).inset(24.0)
+    })
   }
   
   private func setupViewHierarchy() {
     self.view.addSubview(self.colorPicker)
-    self.view.addSubview(self.expandingView)
+    self.view.addSubview(self.paletteBuildingView!)
     self.view.addSubview(self.currentColorDetailsRGBLabel)
     self.view.addSubview(self.currentColorDetailsHexLabel)
     

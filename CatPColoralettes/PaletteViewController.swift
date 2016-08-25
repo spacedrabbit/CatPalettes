@@ -38,7 +38,9 @@ internal class PaletteViewController: BasePaletteViewController, UITableViewDele
   internal var debugPallete: [ColorPalette] {
     return [
       ColorPalette(name: "Debug Primary", colors: [UIColor.redColor(), UIColor.blueColor(), UIColor.yellowColor()]),
-      ColorPalette(name: "Debug Secondary", colors: [UIColor.purpleColor(), UIColor.orangeColor(), UIColor.greenColor()])
+      ColorPalette(name: "Debug Secondary", colors: [UIColor.purpleColor(), UIColor.orangeColor(), UIColor.greenColor()]),
+      ColorPalette(name: "Debug Long", colors: [UIColor.redColor(), UIColor.blueColor(), UIColor.yellowColor(),
+                                                UIColor.purpleColor(), UIColor.orangeColor(), UIColor.greenColor()])
     ]
   }
   

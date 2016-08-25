@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		14177B1D1D6F82D700E77FDC /* SingleColorEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14177B1C1D6F82D700E77FDC /* SingleColorEditView.swift */; };
 		1441546C1D6B99AE00BA03D0 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1441546B1D6B99AE00BA03D0 /* MenuViewController.swift */; };
 		1441546F1D6BBD9900BA03D0 /* MenuManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1441546E1D6BBD9900BA03D0 /* MenuManager.swift */; };
 		144334C01D690ABC00E2F511 /* SimpleHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144334BF1D690ABC00E2F511 /* SimpleHeaderView.swift */; };
@@ -38,6 +39,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		14177B1C1D6F82D700E77FDC /* SingleColorEditView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SingleColorEditView.swift; path = Views/SingleColorEditView.swift; sourceTree = "<group>"; };
 		1441546B1D6B99AE00BA03D0 /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		1441546E1D6BBD9900BA03D0 /* MenuManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MenuManager.swift; path = Common/MenuManager.swift; sourceTree = "<group>"; };
 		144334BF1D690ABC00E2F511 /* SimpleHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimpleHeaderView.swift; sourceTree = "<group>"; };
@@ -132,6 +134,7 @@
 				1466AE0E1D661EA2006D072E /* ExpandingView.swift */,
 				144334C41D690B6700E2F511 /* FloatingButton.swift */,
 				144B3C4C1D6E387B006B4597 /* PaletteBuildingView.swift */,
+				14177B1C1D6F82D700E77FDC /* SingleColorEditView.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -350,6 +353,7 @@
 				1466AE131D67F706006D072E /* SimpleExpandingCell.swift in Sources */,
 				14B4E6171D6CFC5D00EADED7 /* BrightnessView.swift in Sources */,
 				14C491291D66156F00390756 /* ExpandingTableViewCell.swift in Sources */,
+				14177B1D1D6F82D700E77FDC /* SingleColorEditView.swift in Sources */,
 				1466AE111D67F39F006D072E /* Helpers.swift in Sources */,
 				1466AE151D67FD4C006D072E /* ColorPalette.swift in Sources */,
 				14C491271D6610CC00390756 /* PaletteViewController.swift in Sources */,
