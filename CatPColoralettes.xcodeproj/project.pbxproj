@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		14177B1D1D6F82D700E77FDC /* SingleColorEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14177B1C1D6F82D700E77FDC /* SingleColorEditView.swift */; };
+		14177B1F1D6FA95500E77FDC /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14177B1E1D6FA95500E77FDC /* DataManager.swift */; };
 		1441546C1D6B99AE00BA03D0 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1441546B1D6B99AE00BA03D0 /* MenuViewController.swift */; };
 		1441546F1D6BBD9900BA03D0 /* MenuManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1441546E1D6BBD9900BA03D0 /* MenuManager.swift */; };
 		144334C01D690ABC00E2F511 /* SimpleHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144334BF1D690ABC00E2F511 /* SimpleHeaderView.swift */; };
@@ -40,6 +41,7 @@
 
 /* Begin PBXFileReference section */
 		14177B1C1D6F82D700E77FDC /* SingleColorEditView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SingleColorEditView.swift; path = Views/SingleColorEditView.swift; sourceTree = "<group>"; };
+		14177B1E1D6FA95500E77FDC /* DataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DataManager.swift; path = Common/DataManager.swift; sourceTree = "<group>"; };
 		1441546B1D6B99AE00BA03D0 /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		1441546E1D6BBD9900BA03D0 /* MenuManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MenuManager.swift; path = Common/MenuManager.swift; sourceTree = "<group>"; };
 		144334BF1D690ABC00E2F511 /* SimpleHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimpleHeaderView.swift; sourceTree = "<group>"; };
@@ -94,6 +96,7 @@
 				1466AE101D67F39E006D072E /* Helpers.swift */,
 				1466AE161D67FEDE006D072E /* ExpansionGroupManager.swift */,
 				1441546E1D6BBD9900BA03D0 /* MenuManager.swift */,
+				14177B1E1D6FA95500E77FDC /* DataManager.swift */,
 			);
 			name = Common;
 			sourceTree = "<group>";
@@ -347,6 +350,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1441546F1D6BBD9900BA03D0 /* MenuManager.swift in Sources */,
+				14177B1F1D6FA95500E77FDC /* DataManager.swift in Sources */,
 				144334C51D690B6700E2F511 /* FloatingButton.swift in Sources */,
 				14B4E6181D6CFC5D00EADED7 /* ColorUtils.swift in Sources */,
 				14B4E61B1D6CFC5D00EADED7 /* SwiftHSVColorPicker.swift in Sources */,

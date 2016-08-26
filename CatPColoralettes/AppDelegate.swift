@@ -14,7 +14,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
   var window: UIWindow?
 
-
   func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
     let rootVC = PaletteViewController()
     let navigationController: UINavigationController = UINavigationController(rootViewController: rootVC)
@@ -23,10 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
       NSForegroundColorAttributeName : AppColors.DefaultTitleText,
       NSFontAttributeName : AppFonts.Header
     ]
-    
-    // TODO: update leftMenuController to use a custom menu subclass
-    // TODO: disable right menu, or just make it the same instance of the left controller
-    // TODO: update background on menu
+
     // TODO: test with background image and adjust parallax settings
     let menu: MenuViewController = MenuViewController()
     let slidingNavigationMenu: RESideMenu = RESideMenu(contentViewController: navigationController,
@@ -39,11 +35,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     MenuManager.initialize(withMenu: slidingNavigationMenu)
     
+    self.testJSON()
+    
     self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
     self.window?.rootViewController = slidingNavigationMenu //navigationController
     self.window?.makeKeyAndVisible()
     
     return true
+  }
+  
+  internal func testJSON() {
+    DataManager.shared.storePalettes([ColorPalette(name: "test", colors: nil)])
   }
 
   func applicationWillResignActive(application: UIApplication) {

@@ -34,6 +34,17 @@ internal struct AppStrings {
   internal static let SettingsTitle: String = "Settings"
 }
 
+internal struct AppKeys {
+  internal static let Data: String = "data"
+  internal static let Name: String = "name"
+  internal static let Colors: String = "colors"
+  internal static let Red: String = "red"
+  internal static let Green: String = "green"
+  internal static let Blue: String = "blue"
+  
+  internal static let Encoded: String = "encoded"
+}
+
 internal enum AppMenuButton: Int {
   case Palette, Gradient, Settings, Profile
 }

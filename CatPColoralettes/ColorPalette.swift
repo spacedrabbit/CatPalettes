@@ -31,14 +31,14 @@ internal struct ColorPalette: Hashable {
   internal init(withDictionary dict: [String : AnyObject]) throws {
    
     guard
-      let pData: [String : AnyObject] = dict["data"] as? [String : AnyObject]
+      let pData: [String : AnyObject] = dict[AppKeys.Data] as? [String : AnyObject]
     else {
       throw NSError(domain: "Invalid Root Node in Dictionary", code: 000, userInfo: dict)
     }
     
     guard
-      let pName: String = pData["name"] as? String,
-      let colorInfo: [[String : AnyObject]] = pData["colors"] as? [[String : AnyObject]]
+      let pName: String = pData[AppKeys.Name] as? String,
+      let colorInfo: [[String : AnyObject]] = pData[AppKeys.Colors] as? [[String : AnyObject]]
     else {
       throw NSError(domain: "Invalid Dictionary", code: 001, userInfo: dict)
     }
@@ -46,9 +46,9 @@ internal struct ColorPalette: Hashable {
     var colors: [UIColor] = []
     for colorNode in colorInfo {
       guard
-        let red: NSNumber = colorNode["red"] as? NSNumber,
-        let blue: NSNumber = colorNode["blue"] as? NSNumber,
-        let green: NSNumber = colorNode["green"] as? NSNumber
+        let red: NSNumber = colorNode[AppKeys.Red] as? NSNumber,
+        let blue: NSNumber = colorNode[AppKeys.Blue] as? NSNumber,
+        let green: NSNumber = colorNode[AppKeys.Green] as? NSNumber
       else {
         throw NSError(domain: "Invalid Color Dictionary", code: 002, userInfo: colorNode)
       }
@@ -78,22 +78,22 @@ internal struct ColorPalette: Hashable {
   internal func toDictionary() -> [String : AnyObject] {
     
     var returnDictionary: [String : AnyObject] = [:]
-    var container: [AnyObject] = []
+    var colorContainer: [AnyObject] = []
 
     for color in self.paletteColors {
       let colorComponets = rgbComponentsFrom(color)
       let dictVal = [
-        "red" : colorComponets.r,
-        "green" : colorComponets.g,
-        "blue" : colorComponets.b
+        AppKeys.Red : colorComponets.r,
+        AppKeys.Green : colorComponets.g,
+        AppKeys.Blue : colorComponets.b
       ]
       
-      container.append(dictVal)
+      colorContainer.append(dictVal)
     }
     
-    returnDictionary["data"] = [
-      "name" : self.paletteName,
-      "colors" : container
+    returnDictionary[AppKeys.Data] = [
+      AppKeys.Name : self.paletteName,
+      AppKeys.Colors : colorContainer
     ]
     
     return returnDictionary
