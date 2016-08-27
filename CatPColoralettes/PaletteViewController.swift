@@ -197,7 +197,7 @@ internal class PaletteViewController: BasePaletteViewController, UITableViewDele
   // ---------------------------------------------------------------- //
   // MARK: - Floating Button Delegate
   internal func didTapFloatingButton(withAction action: FloatingButtonAction) {
-   let dtvc = PaletteSelectionViewController()
+   let dtvc = PaletteSelectionViewController(withColorPalette: ColorPalette(name: "New...", colors: nil))
     self.navigationController?.pushViewController(dtvc, animated: true)
   }
   

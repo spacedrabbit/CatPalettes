@@ -41,6 +41,8 @@ internal class DataManager {
          
           // TODO: create file
           // TODO: save/store file
+          self.fileManager.createFileAtPath("\(newURL.absoluteString)colorInfo.txt", contents: base64ed, attributes: nil)
+          
           
         }
       }
